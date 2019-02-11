@@ -10,9 +10,10 @@ length(names(lucid))
 #create new character variable
 #keep only the text after dummy#:
 pattern = "^dummy.*:"
+
 lucid <- lucid %>% 
   mutate(character = str_remove(X1, pattern)) %>% 
-  select(character, 2:length(names(lucid)))
+  select(X1, character, 2:length(names(lucid)))
 
 lucid
 lucid$character
@@ -29,15 +30,17 @@ lucid$character
 # str_remove(test.chars, pattern)
 # ----------------------------------------------------
 
-
-
-
 #select a species (column) and see characters
 test <- lucid %>% 
-  select(1:2) %>% 
-  filter(`Perilampus notdobnos (Bogus)` == 1)
+  select(1:3) %>% 
+  filter(`Perilampus notdobnos (Bogus)` >0)
 
 test
 
+#export species description
+test.output <- test %>% 
+  summarize(description = paste(character, collapse = " ")) %>% 
+  rename(`Perilampus notdobnos (Bogus)` = "description")
+test.output
 
-
+fwrite(test.output, here("outputs", "test.csv"))

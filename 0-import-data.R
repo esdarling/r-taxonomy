@@ -11,7 +11,8 @@ mysheets %>%
 
 ?gs_title
 
-lucid <- gs_title("Jan 31 2017 test export") #identifies google sheet
+#lucid <- gs_title("Jan 31 2017 test export") #identifies google sheet
+lucid <- gs_title("test complete") #identifies google sheet
 lucid <- gs_read(lucid)  #imports data
 
   
