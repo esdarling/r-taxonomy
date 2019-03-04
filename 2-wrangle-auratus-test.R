@@ -1,4 +1,5 @@
 #this code processes the data
+#specifically for Auratus 1 and 2 test files from DCD
 
 library(here)
 #source(here("0-google-docs-import-data.R"))
@@ -32,6 +33,7 @@ lucid
 # ----------------------------------------------------
 
 #select a species (column) and see characters
+#auratus.1
 lucid
 
 test <- lucid %>% 
@@ -48,6 +50,23 @@ test.output <- test %>%
 names(test.output)[1] <- names(test)[3]
 test.output
 
+fwrite(test.output, here("outputs", "auratus-1.csv"))
 
+#auratus.2
+lucid
 
-fwrite(test.output, here("outputs", "test.csv"))
+test <- lucid %>% 
+  select(1:2,3) %>% 
+  filter(auratus.2 > 0) %>% 
+  mutate(character = str_replace_all(character, ":", ": "))
+
+test
+names(test)
+
+#export species description
+test.output <- test %>% 
+  summarize(description = paste(character, collapse = " "))
+names(test.output)[1] <- names(test)[3]
+test.output
+
+fwrite(test.output, here("outputs", "auratus-2.csv"))
