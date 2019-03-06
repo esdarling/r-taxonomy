@@ -4,13 +4,17 @@ library(here)
 library(googlesheets)
 library(tidyverse)
 library(data.table)
+library(visdat)
+library(skimr)
+
+#install.packages("visdat")
 
 #-------------------
 #import from csv file
 # lucid <- read.csv(here("data-input", "UAE auratus test.csv")) %>% 
 #   as_tibble()
 
-lucid <- read.csv(here("data-input", "Auratus 1 and 2 Feb 27 2019.csv")) %>% 
+lucid <- read.csv(here("data-input", "March 6.csv")) %>% 
   as_tibble()
 lucid  
 
