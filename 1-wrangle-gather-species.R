@@ -6,20 +6,26 @@ library(here)
 source(here("0-csv-import-data.R"))
 
 lucid
-vis_dat(lucid)
-skim(lucid)
 
+lucid <- lucid %>% 
+  clean_names()
+names(lucid) 
+
+unique(lucid$x)
 #create new character variable
 #keep only the text after dummy#:
 pattern = "^dummy.*:"
 
 lucid <- lucid %>% 
   #mutate(order = seq(from = 1, to = nrow(lucid), by = 1)) %>% 
-  gather("species", "trait.01", -X) %>%  #-X excludes X column from gather
-  mutate(character = str_remove(X, pattern), 
+  gather("species", "trait.01", -1) %>%  #-X excludes X column from gather
+  mutate(character = str_remove(x, pattern), 
          character = str_replace_all(character, ":", ": ")) %>% 
   filter(trait.01 != 0)
 
+lucid
+unique(lucid$species)
+unique(lucid$character)
 
 # ----------------------------------------------------
 #testing
@@ -40,6 +46,5 @@ spp.collapse <- lucid %>%
 
 spp.collapse
 
-file
 fwrite(spp.collapse, here("outputs", paste("output", file, sep = "-")))
 

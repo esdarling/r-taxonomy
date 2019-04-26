@@ -6,6 +6,7 @@ library(tidyverse)
 library(data.table)
 library(visdat)
 library(skimr)
+library(janitor)
 
 #install.packages("visdat")
 
