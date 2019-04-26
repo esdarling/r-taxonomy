@@ -13,8 +13,11 @@ library(skimr)
 #import from csv file
 # lucid <- read.csv(here("data-input", "UAE auratus test.csv")) %>% 
 #   as_tibble()
+list.files(here("data-input"), pattern='*.csv')
+file <- list.files(here("data-input"), pattern='*.csv')
+file
 
-lucid <- read.csv(here("data-input", "March 6.csv")) %>% 
+lucid <- read.csv(here("data-input", file)) %>% 
   as_tibble()
 lucid  
 

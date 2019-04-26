@@ -40,5 +40,6 @@ spp.collapse <- lucid %>%
 
 spp.collapse
 
-fwrite(spp.collapse, here("outputs", "gather-test.csv"))
+file
+fwrite(spp.collapse, here("outputs", paste("output", file, sep = "-")))
 
