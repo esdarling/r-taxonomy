@@ -45,6 +45,8 @@ spp.collapse <- lucid %>%
   summarize(description = paste(character, collapse = " "))
 
 spp.collapse
+unique(spp.collapse$species)
+
 
 fwrite(spp.collapse, here("outputs", paste("output", file, sep = "-")))
 
