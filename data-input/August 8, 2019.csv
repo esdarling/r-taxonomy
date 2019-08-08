@@ -1,0 +1,496 @@
+,"P. ardens","P. awbalus","P. khor","P. zelliger","P. sarabus","P. houbaraensis","P. yemenensis"
+"Length:2-4mm;",0,0,0,0,0,0,0
+"Length:small, 2-3mm;",0,0,0,0,0,0,0
+"Length:2-3.5mm;",0,0,0,0,0,0,0
+"Length:2-3.5mm, most approx. 3mm;",0,0,0,0,0,0,0
+"Length:small, from 2.5 to 3mm;",0,0,0,0,0,0,0
+"Length:large, 3-4mm, most >3.5mm;",0,0,0,0,0,0,0
+"Length:3-4mm;",0,0,0,0,0,0,0
+"Length:3-3.5mm;",0,0,0,0,0,0,0
+"Length:large, 3.5-4.5mm;",0,0,0,0,0,0,0
+"Length:large, about 3.5mm;",0,0,0,0,0,0,0
+"Length:2.5-3.5mm;",0,0,0,0,0,0,0
+"Length:2-5mm, most >3-4mm;",0,0,0,0,0,0,0
+"Length:approx. 2mm - 2.5mm (HT about 2.5mm).",1,0,0,0,0,0,0
+"Length:approx. 2.5mm (HT about 2.5mm).",0,1,0,0,0,0,0
+"Length:approx. 1.2 - 2.2mm (HT about 1.7mm).",0,0,0,0,0,1,0
+"Length:approx. 1.8 - 2.2mm (HT about 2.1mm).",0,0,0,0,0,0,1
+"Length:approx. 1.2 mm (HT about 1.2mm).",0,0,0,0,1,0,0
+"Length:approx. 2.2-2.7mm (HT about 2.3mm).",0,0,0,1,0,0,0
+"Length:approx. 2.3 - 2.4mm (HT about 2.2mm).",0,0,1,0,0,0,0
+"Color:black, with iridescent reflections on hind femur and tibia;",0,0,0,0,0,0,0
+"Color:black, with iridescent reflections on hind femur and tibia, gaster chestnut brown to black;",0,0,0,0,0,0,0
+"Color:black, with iridescent reflections on hind femur and tibia, some specimens with bronzy sheen;",0,0,0,0,0,0,0
+"Color:black, without iridescent reflections;",0,0,0,0,0,0,0
+"Color:black, with weakly iridescent blue tinge on scutellum and rarely on mesoscutum;",0,0,0,0,0,0,0
+"Color:black, without iridescent reflections, gaster chestnut brown to black;",0,0,0,0,0,0,0
+"Color:head iridescent green with gold tinge, meososoma blue-green, metasoma brown with strong blue-green reflections;",1,0,0,0,0,0,0
+"Color:iridescent, head, pronotum, prepectus, and lateral sides of lateral lobes of mesoscutum gold and red, mesonotum red and black, rest of thorax blue-green or violet, metasoma gold-green;",0,0,0,0,0,0,0
+"Color:black, scutellum with blue iridescent reflections;",0,0,0,0,0,0,1
+"Color:black, without iridescent reflections, or mesonotum with bronze or blue iridescent reflections, metasoma black or brown;",0,0,0,0,0,1,0
+"Color:black, mesonotum black with weak bronze reflections, metasoma black;",0,0,0,1,0,0,0
+"Color:black, mesonotum with iridescent blue reflections;",0,0,0,0,1,0,0
+"Color:head black with weak gold or green tinge, mesonotum iridiscent bronze with red and green tinge, metasoma black or brown;",0,0,1,0,0,0,0
+"Color:cupreous, except: mesonotum red and black, pleurons blue-violet, lateral lobes along notauli blue-green;",0,1,0,0,0,0,0
+"dummy120(raised smooth tubercle):raised smooth tubercle on mesoscutum bright red and yellow reflections;",1,0,0,0,0,0,0
+"dummy120(raised smooth tubercle):raised smooth tubercle on mesoscutum same color as mesoscutum;",0,1,0,0,0,0,0
+"dummy111 (dorsellum):dorsellum iridescent blue-green.",1,0,0,0,0,0,0
+"dummy111 (dorsellum):dorsellum iridescent bronze with violet tinge.",0,0,1,0,0,0,0
+"dummy111 (dorsellum):dorsellum black with blue reflections.",0,1,0,0,1,0,1
+"dummy111 (dorsellum):dorsellum black with coppery red or bronze reflections.",0,0,0,0,0,1,0
+"dummy111 (dorsellum):dorsellum black with bronze reflections.",0,0,0,1,0,0,0
+"Legs:coxae and hind femur black,  pro-, meso-femora and tibiae brown to yellow, lighter distad and on inner surfaces, tarsi white;",0,0,0,0,0,0,0
+"Legs:coxae and hind femur black,  pro-, meso-femora and tibiae brown to yellow, lighter distad and on inner surfaces, tarsi yellow;",0,0,0,0,0,0,0
+"Legs:coxae and hind femur brown or black,  pro-, meso-femora and tibiae brown to yellow, lighter distad and on inner surfaces, tarsi yellow;",0,0,0,0,0,0,0
+"Legs:coxae and hind femur brown, pro-, meso-femora and tibiae brown to yellow, lighter distad and on inner surfaces, tarsi yellow;",0,0,0,0,0,0,0
+"Legs:coxae and hind femur dark brown,  pro-, meso-femora and tibiae brown to yellow, lighter distad and on inner surfaces, tarsi yellow;",0,0,0,0,0,0,0
+"Legs:coxae brown with green reflections, pro- and meso femora and tibiae brown to yellow, lighter distad and on inner surfaces, hind femora brown with blue-green reflections, tarsi brown.",1,0,0,0,0,0,0
+"Legs:coxae black, femora and tibia brown to yellow, lighter distad and on inner surfaces surfaces, with blue-green reflections, stronger on hind femora, tarsi white.",0,0,0,0,0,0,0
+"Legs:coxae, femora, and tibiae brown, lighter distad and on inner surfaces, with weak violet reflections, stronger on hind femora, tarsi brown.",0,1,0,0,0,0,0
+"Legs:coxae black, hind femora black or brown, pro and meso femora and tibiae brown, lighter distad and on inner surfaces, with weak blue reflections, tarsi brown.",0,0,0,1,1,1,1
+"Legs:coxae black, femora and tibiae brown, lighter distad and on inner surfaces, with weak blue reflections, tarsi brown.",0,0,1,0,0,0,0
+"Antennae:scape black;",0,0,0,0,0,0,0
+"Antennae:scape black with iridescent reflections;",0,0,0,0,0,0,0
+"Antennae:scape black, chestnut brown in males;",0,0,0,0,0,0,0
+"Antennae:Antennae: scape brown with iridescence, pedicel brown, flagellum yellow.",1,1,0,0,0,0,0
+"Antennae:Antennae: scape and pedicel brown, flagellum yellow or brown, often darker on dorsad.",0,0,0,1,0,0,0
+"Antennae:scape dark brown to black, females with weak iridescent reflections;",0,0,0,0,0,0,0
+"Antennae:scape dark brown to black;",0,0,0,0,0,0,0
+"Antennae:scape and pedicel brown, flagellum yellow.",0,0,0,0,0,0,0
+"Antennae:Antennae: scape brown with iridescence, lighter distad, pedicel brown, flagellum yellow.",0,0,0,0,0,1,0
+"Antennae:Antennae: scape brown, lighter distad, pedicel and flagellum brown.",0,0,1,0,1,0,1
+"Head:in frontal view transverse, wider than high, HW/HH approx. 1.3, sparsely setose to glabrous;",1,0,1,0,0,0,0
+"Head:in frontal view quadrate, slightly wider than high, HW/HH 1.2-1.3;",0,0,0,0,0,0,0
+"Head:in frontal view quadrate, slightly wider than high, HW/HH approx. 1.2;",0,0,0,0,0,0,0
+"Head:in frontal view quadrate, slightly wider than high, HW/HH approx. 1.2, densely setose;",0,0,0,1,0,0,0
+"Head:in frontal view quadrate, slightly wider than high, HW/HH approx. 1.2, sparsely setose to glabrous;",0,1,0,0,1,1,1
+"dummy1:in dorsal view transverse, width slightly greater than twice length, HW/HL 2.1-2.2;",1,1,0,0,0,0,0
+"dummy1:in dorsal view transverse, width greater than twice length, HW/HL 2.2-2.3;",0,0,0,0,0,1,0
+"dummy1:in dorsal view strongly transverse, width much greater than twice length, HW/HL 2.5-2.6",0,0,1,0,0,0,0
+"dummy1:in dorsal view transverse, but appearing quadrate due to massive orbits, HW/HL 2.0;",0,0,0,0,0,0,0
+"dummy1:in dorsal view narrow, HW/HL >2.4;",0,0,0,0,0,0,0
+"dummy1:in dorsal view quadrate, width less than twice length, HW/HL 1.8-1.9;",0,0,0,0,0,0,0
+"dummy1:in dorsal view transverse, width same or slightly greater than twice length, HW/HL 2.0-2.1;",0,0,0,1,1,0,1
+"dummy2:slightly wider than pronotum, HW/PW approx. 1.1.-1.2.",1,1,1,0,0,1,0
+"dummy2:wider than pronotum, HW/PW approx. 1.3.",0,0,0,0,0,0,1
+"dummy2:wider than pronotum, HW/PW about 1.4;",0,0,0,0,1,0,0
+"dummy2:wider than pronotum, HW/PW approx. 1.2-1.3",0,0,0,1,0,0,0
+"Frontal carina:distinct, abruptly raised and knife-edged from anterior ocellus almost to lower eye margin;",0,0,0,0,0,0,0
+"Frontal carina:distinct, abruptly raised and knife-edged from anterior ocellus to at most level of toruli;",0,0,0,0,0,0,0
+"Frontal carina:weak, from anterior ocellus to above level of toruli;",0,0,0,0,0,0,0
+"Frontal carina:indistinct between ocelli, margins of scrobal cavity rounded, carina distinct at mid-eye height;  (EDIT)",0,0,0,0,0,0,0
+"Frontal carina:absent.",1,1,1,1,1,1,1
+"Scrobal cavity:deep medially, scape not visible in lateral view, sides expanded;",0,0,0,0,0,0,0
+"Scrobal cavity:deep medially, scape not visible in lateral view, sides expanded and vertically rugose;",0,0,0,0,0,0,0
+"Scrobal cavity:deep, steep-sided, scape not visible in lateral view;",0,0,0,0,0,0,0
+"Scrobal cavity:shallow;",1,1,1,1,1,1,1
+"Scrobal cavity:very deep, flagellum barely visible in lateral view;",0,0,0,0,0,0,0
+"Scrobal cavity:very deep, folded antennae not visible in lateral view;",0,0,0,0,0,0,0
+"dummy96 (preorbital keels)0:very weakly swollen glabrous ridge or round swelling originating from between median and lateral ocelli extend towards eye margin.",0,0,0,1,1,1,1
+"dummy96 (preorbital keels)0:weakly swollen glabrous ridge between median and lateral ocelli, does not reach eye margin.",0,0,0,0,0,0,0
+"dummy96 (preorbital keels)0:weak glabrous ridge originating from between median and lateral ocelli extend towards eye margin.",0,0,1,0,0,0,0
+"dummy96 (preorbital keels)0:weakly swollen glabrous ridge originating from between median and lateral ocelli extend towards eye margin.",0,0,0,0,0,0,0
+"dummy96 (preorbital keels)0:weak glabrous swelling originating from between median and lateral ocelli towards eye margin.",0,1,0,0,0,0,0
+"dummy96 (preorbital keels)0:normally vaulted, without swollen ridge between ocelli.",0,0,0,0,0,0,0
+"dummy96 (preorbital keels)0:weakly swollen ridge with wrinkles originating from between median and lateral ocelli towards eye margin.",1,0,0,0,0,0,0
+"dummy96 (preorbital keels)0:weak round swelling between median and lateral ocelli, does not extend towards eye margin",0,0,0,0,0,0,0
+"Ocelli:normal size, about as wide as PW;",0,0,0,0,0,0,0
+"Ocelli:small, narrower than or as wide as PW;",0,1,0,0,0,0,0
+"Ocelli:large, wider than PW;",1,0,1,1,1,1,1
+"dummy9 (edited):forming a broad isosceles triangle (45 d), POL about twice distance between posterior and anterior ocelli;",0,0,0,0,0,0,0
+"dummy9 (edited):forming a very narrow isosceles triangle (15 d), POL 3 times distance between posterior and anterior ocellus;",0,0,0,0,0,0,0
+"dummy9 (edited):forming a narrow isosceles triangle (20 d), POL about 2.5 times distance between posterior and anterior ocelli;",0,0,0,0,0,0,0
+"dummy9 (edited):forming a narrow triangle, POL greater than 2.5 times distance between posterior and anterior ocelli;",0,0,1,0,0,0,0
+"dummy9 (edited):forming a wide triangle, POL about twice distance between posterior and anterior ocelli;",1,1,0,1,1,1,1
+"dummy10 (edited, no distinct FC in oellatus, reworded:a line between anterior margins of posterior ocelli reaches edge of scrobal cavity;",0,0,0,0,0,0,0
+"dummy10 (edited, no distinct FC in oellatus, reworded:a line between anterior margins of posterior ocelli bisects frontal carina;",0,0,0,0,0,0,0
+"dummy10 (edited, no distinct FC in oellatus, reworded:a line between anterior margins of posterior ocelli does not bisect frontal carina;",0,0,0,0,0,0,0
+"dummy11 (POL):POL at least twice OOL.",1,1,0,1,0,0,0
+"dummy11 (POL):POL very long, >2.5x OOL.",0,0,1,0,1,1,1
+"dummy11 (POL):POL long, 2.2x OOL.",0,0,0,0,0,0,0
+"Vertex:rounded behind, without excavation, costulae subparallel along midline;",0,0,0,1,0,0,0
+"Vertex:falling off abruptly behind, without excavation, costulae subparallel along midline;",0,1,0,0,0,0,0
+"Vertex:rounded behind, with deep excavation along midline, costulae strongly recurved along midline;",1,0,0,0,0,0,0
+"Vertex:rounded behind, without furrow along midline, subparallel costulae weakened along midline;",0,0,0,0,0,0,0
+"Vertex:rounded behind, with wide excavation along midline, costulae weakly recurved along midline;",0,0,1,0,1,1,1
+"dummy11 (vertex sculpture):with strong transverse costulae, without distinct posterior carina;",0,0,0,0,0,0,0
+"dummy11 (vertex sculpture):with weak transverse costulae, without distinct posterior carina;",0,0,0,0,0,0,0
+"dummy11 (vertex sculpture):glabrous, with distinct posterior carina;",0,0,0,0,0,0,0
+"dummy11 (vertex sculpture):glabrous, with weak costulae behind, without distinct posterior carina;",0,0,0,0,0,0,0
+"dummy11 (vertex sculpture):glabrous or roughned, with weak costulae behind, without distinct posterior carina;",0,0,0,0,0,0,0
+"dummy11 (vertex sculpture):colliculate, with weak median groove, weak transvere costulae behind, without distinct posterior carina;",0,0,0,0,0,0,0
+"dummy11 (vertex sculpture):rugose, without a distinct posterior carina;",0,0,0,0,0,0,0
+"dummy11 (vertex sculpture):with dense transverse costulae and strong posterior carina;",0,0,0,0,0,0,0
+"dummy11 (vertex sculpture):with weak alveolae on the inner margins of the ocelli, without distinct posterior carina.",1,0,0,0,0,0,0
+"dummy11 (vertex sculpture):interocellular region weakly rugulose, with distinct posterior carina.",0,1,0,0,0,0,0
+"dummy11 (vertex sculpture):shallow groove originating from median ocellus to posterior head margin;",0,0,0,0,0,0,0
+"dummy11 (vertex sculpture):shallow linear groove originating from median ocellus to posterior head margin, without distinct posterior carina.",0,0,0,0,1,1,1
+"dummy11 (vertex sculpture):interocellular region weakly rugulose, costulae close to ocelli, without distinct posterior carina.",0,0,1,0,0,0,0
+"dummy11 (vertex sculpture):glabrous, without distinct posterior carina.",0,0,0,1,0,0,0
+"Outer orbits:glabrous, with strong costulae behind.",0,0,0,0,0,0,0
+"Outer orbits:glabrous, with weak costulae behind;",0,0,0,0,0,0,0
+"Outer orbits:glabrous to weakly imbricate, with stronger costulae behind;",0,0,0,0,0,0,0
+"Outer orbits:glabrous, strong costulae behind.",1,1,1,1,1,1,1
+"Outer orbits:weakly imbricate, stronger costulae behind;",0,0,0,0,0,0,0
+"Inner orbits:in lateral view, nearly parallel to inner eye margin;",1,1,1,1,1,1,1
+"Inner orbits:in lateral view, parallel to inner eye margin, or weakly expanded and gradually narrowing from top to middle of eye;",0,0,0,0,0,0,0
+"Inner orbits:in lateral view gradually convergent on lower eye margin;",0,0,0,0,0,0,0
+"Inner orbits:in lateral view expanded, gradually narrowing from top to middle of eye, abruptly narrowed at level of toruli;",0,0,0,0,0,0,0
+"Inner orbits:in lateral view, nearly parallel to inner eye margin; gradually narrowing from top to middle of eye;",0,0,0,0,0,0,0
+"Inner orbits:in lateral view massive, equal in width at top and middle of eye, abruptly narrowed at lower eye margin;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):sculpture weakly coriarious to glabrous;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):sculpture weakly coriarious to glabrous below;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):sculpture strongly colliculate, weaker below;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):sculpture colliculate above, glabrous below;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):sculpture strongly colliculate;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):glabrous.",1,1,1,1,1,1,1
+"dummy12 (inner orbit sculpture):sculpture usually glabrous, rarely coriarious;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):sculpture glabrous, smooth and shining, rarely shagreened;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):sculpture weakly coriarious above, glabrous below;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):sculpture weakly coriarious;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):sculpture glabrous, with pustullate setae;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):with 4-5 strong, parallel costae;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):coriaceous.",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):sculpture glabrous to weakly coriarious above, often coriarious below;",0,0,0,0,0,0,0
+"dummy12 (inner orbit sculpture):sculpture coriaceous, from vertex to upper inner orbits;",0,0,0,0,0,0,0
+"Malar space:short, less than one-fifth eye height, MS/EH approx. .15;",0,0,0,0,0,0,0
+"Malar space:short, less than one-fifth eye height, MS/EH approx. .15, shorter in males;",0,0,0,0,0,0,0
+"Malar space:short, about one-fifth eye height, MS/EH approx. 0.2;",1,0,1,1,1,0,1
+"Malar space:about one-fifth eye height,  MS/EH approx. .2, shorter in males;",0,0,0,0,0,0,0
+"Malar space:long, about one-quarter eye height, MS/EH approx. .25, shorter in males;",0,0,0,0,0,0,0
+"Malar space:long, about one-quarter eye height, MS/EH approx. .3, shorter in males;",0,0,0,0,0,0,0
+"Malar space:long, greater than one-quarter eye height, MS/EH .3-.4, shorter in males;",0,0,0,0,0,0,0
+"Malar space:long, greater than one-quarter eye height, MS/EH approx.0.3;",0,1,0,0,0,1,0
+"dummy13 (malar sulcus):malar sulcus distinct, and an abrupt change in sculpture;",0,0,0,0,0,0,0
+"dummy13 (malar sulcus):malar sulcus absent, not indicated by change in sculpture;",0,0,0,0,0,0,0
+"dummy13 (malar sulcus):malar sulcus absent, or indicated only by slight change in sculpture;",0,0,0,0,0,0,0
+"dummy13 (malar sulcus):malar sulcus weakly impressed, with distinct change in sculpture;",0,0,0,0,0,0,0
+"dummy13 (malar sulcus):malar sulcus weakly impressed or indicated only by a slight change in sculpture;",0,0,0,0,0,0,0
+"dummy13 (malar sulcus):malar sulcus distinct;",1,1,1,1,0,1,1
+"dummy14(Malar region, sculpture):weakly coriarious;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):coriarious behind, coalesced to rugulae convergent on clypeus;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):coriarious, often coalesced to rugulae convergent on clypeus;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):coriarious to weakly coriarious;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):coriarious;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):coriarious with strong costae below frontal carina, convergent on clypeus;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):glabrous, with very weak rugulae;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):glabrous, with strong costae below frontal carina, convergent on clypeus;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):glabrous, very weakly coriarious behind;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):with very shallow piliferous punctures.",1,1,0,0,0,0,0
+"dummy14(Malar region, sculpture):finely rugulose, convergent on clypeus;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):rugulose, convergent on clypeus;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):glabrous, smaller specimens coriarious;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):strongly coriarious, with weak rugae below frontal carina;",0,0,0,0,0,0,0
+"dummy14(Malar region, sculpture):glabrous.",0,0,1,1,1,1,0
+"dummy14(Malar region, sculpture):very weakly coriarious.",0,0,0,0,0,0,1
+"Clypeus:quadrate, only slightly wider than high, CW/CH 1.1-1.2,",0,0,0,0,0,0,0
+"Clypeus:subquadrate, slightly wider than high, CW/CH 1.3,",0,0,0,0,0,0,0
+"Clypeus:subquadrate, slightly wider than high, CW/CH 1.3-1.4,",0,0,0,0,0,0,0
+"Clypeus:slightly transverse, wider than high, CW/CH 1.4-1.5,",0,0,1,0,0,0,0
+"Clypeus:transverse, wider than high, CW/CH 1.4-1.6,",0,0,0,0,0,0,0
+"Clypeus:wide, much wider than high, CW/CH 1.6-1.7,",0,0,0,0,0,0,0
+"Clypeus:wide, much wider than high, CW/CH 1.6-1.8,",0,0,0,0,0,0,0
+"Clypeus:strongly transverse, much wider than high, CW/CH 2.1-2.2,",1,0,0,0,0,0,0
+"Clypeus:weakly transverse, wider than high, CW/CH approx. 1.7-1.8,",0,1,0,1,1,1,1
+"dummy14 (shape):ovoid, with lateral sulci very weak and rounded;",0,0,0,0,0,0,0
+"dummy14 (shape):subquadrate, lateral sulci weak and nearly straight, and almost parallel;",0,0,1,0,0,0,0
+"dummy14 (shape):narrow trapezoidal, with lateral sulci weak and straight, weakly divergent;",0,0,0,0,0,0,0
+"dummy14 (shape):trapezoidal, lateral sulci weak and straight, strongly divergent;",1,0,0,0,0,0,0
+"dummy14 (shape):trapezoidal, lateral sulci weak and straight, weakly divergent;",0,1,0,0,0,1,0
+"dummy14 (shape):lateral sulci strong and straight, strongly divergent;",0,0,0,0,0,0,0
+"dummy14 (shape):trapezoidal, lateral sulci weak and straight or weakly rounded, weakly divergent;",0,0,0,1,1,0,1
+"dummy15 (tentorial pits):without tentorial pits;",0,0,0,0,0,0,0
+"dummy15 (tentorial pits):with weak tentorial pits;",0,0,0,0,0,0,0
+"dummy15 (tentorial pits):tentorial pits either absent or very weak;",0,0,0,0,0,0,0
+"dummy15 (tentorial pits):tentorial pits distinct;",1,1,1,1,1,1,1
+"dummy 16a (ES strength):epistomal sulcus same strength as lateral sulci;",0,0,0,0,0,0,0
+"dummy 16a (ES strength):epistomal sulcus deeper and more distinct than lateral sulci;",0,0,0,0,0,0,0
+"dummy16(ES strength and shape):epistomal sulcus concave, deeper and more distinct than lateral sulci, only slightly extended ventrad;",0,1,0,0,0,0,0
+"dummy16(ES strength and shape):epistomal sulcus straight or weakly concave, same strength as lateral sulci, only slightly extended ventrad;",0,0,1,0,1,1,1
+"dummy16(ES strength and shape):epistomal sulcus straight or weakly concave, deeper and more distinct than lateral sulci, only slightly extended ventrad,",1,0,0,1,0,0,0
+"dummy 16b (ES shape):straight;",0,0,0,0,0,0,0
+"dummy 16b (ES shape):concave;",0,0,0,0,0,0,0
+"dummy 16b (ES shape):straight or weakly concave;",0,0,0,0,0,0,0
+"dummy 16b (ES shape):arcuate or straight;",0,0,0,0,0,0,0
+"dummy 16b (ES shape):weakly concave.",0,0,0,0,0,0,0
+"dummy17 (ES margins):extended ventrad to only about one-fifth height of clypeus;",0,0,0,0,0,0,0
+"dummy17 (ES margins):only slightly extended ventrad;",0,0,0,0,0,0,0
+"dummy17 (ES margins):continuous with lateral sulci;",0,0,0,0,0,0,0
+"dummy17 (ES margins):not extended ventrad;",0,0,0,0,0,0,0
+"dummy17 (ES margins):extended ventrad to almost mid-height of clypeus;",0,0,0,0,0,0,0
+"dummy18 (lower margin):lower margin weakly concave;",0,0,0,0,0,0,0
+"dummy18 (lower margin):lower margin almost straight;",0,0,0,0,0,0,0
+"dummy18 (lower margin):lower margin convex.",0,1,1,1,1,1,1
+"dummy18 (lower margin):lower margin weakly convex.",1,0,0,0,0,0,0
+"Supraclypeal area:shorter, .4-.5 clypeus height;",0,0,0,0,0,0,0
+"Supraclypeal area:long, 0.7-0.8 clypeus height.",1,1,1,1,1,1,1
+"Antenna:scape length approx. 0.5 EH;",0,0,0,1,1,0,1
+"Antenna:scape length approx. 0.6 EH;",1,1,1,0,0,1,0
+"dummy23(Anellus to Pedicel L):anellus subquadrate, length approx. 0.3 PL;",1,1,0,0,0,0,0
+"dummy23(Anellus to Pedicel L):anellus length approx. 0.1 PL;",0,0,1,1,1,1,1
+"dummy24(F1):F1 subquadrate, shorter than pedicel, F1L/PL approx. 0.6-0.7,",0,0,0,0,1,0,1
+"dummy24(F1):F1 subquadrate, shorter or subequal in length to pedicel, F1L/PL approx. 0.6 or 0.9",0,0,0,0,0,0,0
+"dummy24(F1):F1 subquadrate, shorter or subequal in length to pedicel, F1L/PL approx. 0.6-0.9,",1,0,0,0,0,0,0
+"dummy24(F1):F1 transverse or subquadrate, shorter than pedicel.",0,0,0,0,0,0,0
+"dummy24(F1):F1 subquadrate\, shorter than pedicel.",0,0,0,0,0,0,0
+"dummy24(F1):F1 subquadrate, subequal in length to pedicel, F1L/PL approx. 0.9,",0,1,1,1,0,1,0
+"dummy24(F1):F1 subquadrate, shorter than pedicel.",0,0,0,0,0,0,0
+"dummy 22(F2 - F7)0:F2 - F7 transverse;",0,0,0,0,1,0,0
+"dummy 22(F2 - F7)0:F2 subquadrate, F3 - F7 transverse;",1,1,0,1,0,1,1
+"dummy 22(F2 - F7)0:F2 subquadrate or transverse, F3 - F7 transverse;",0,0,0,0,0,0,0
+"dummy 22(F2 - F7)0:F2 and F3 subquadrate, F4 - F7 transverse;",0,0,1,0,0,0,0
+"clava 4-segmented,:C1-3 as long dorsad as ventrad, with distinct terminal button (C4).",1,1,1,0,0,0,0
+"clava 4-segmented,:segments annular in males, C1-3 as long dorsad as ventrad, with distinct terminal button (C4), in females C1-4 convergent ventrad, C4 expanded and comprising most of ventral surface, concave with dense peg-like sensilla;",0,0,0,0,0,0,0
+"clava 4-segmented,:segments annular in males, C1-3 as long dorsad as ventrad, with distinct terminal button (C4), in females C4 slightly expanded ventrad and C3 wealy concave, C4=C3 ventrad;",0,0,0,0,0,0,0
+"clava 4-segmented,:segments annular in males, C1-3 as long dorsad as ventrad, with distinct terminal button (C4), in females C4 expanded ventrad and C3 concave, C4>C3 ventrad;",0,0,0,0,0,0,0
+"clava 4-segmented,:C1-3 longer dorsad than ventrad, with distinct terminal button (C4).",0,0,0,1,1,1,1
+"Mesosoma:length about 1.1 maximum width;",1,0,1,0,0,0,0
+"Mesosoma:length approx. 1.3-1.4 maximum width;",0,0,0,0,0,0,0
+"Mesosoma:length approx. 1.3 maximum width;",0,1,0,0,0,0,1
+"Mesosoma:length >1.5 maximum width; 1.4 remeasure",0,0,0,0,0,0,0
+"Mesosoma:in dorsal view slighter longer than wide, ML/MW approx. 1.1-1.2.",0,0,0,0,0,0,0
+"Mesosoma:length approx. 1.2-1.3 maximum width;",0,0,0,1,0,1,0
+"Mesosoma:length approx. 1.4 maximum width;",0,0,0,0,1,0,0
+"dummy27 (lateral view):in lateral view flattened.",1,1,0,1,1,1,1
+"dummy27 (lateral view):in lateral view convex.",0,0,1,0,0,0,0
+"Pronotum in dorsal view:short, about one-quarter length of mesoscutum, PN/MSC 0.2-0.3;",1,1,1,1,1,1,1
+"Pronotum in dorsal view:longer, about one-third length of mesoscutum, PN/MSC .30-.33;",0,0,0,0,0,0,0
+"Pronotum in dorsal view:long, more than one-third length of mesoscutum, PN/MSC .35-37;",0,0,0,0,0,0,0
+"dummy26 (midline):slightly shorter along midline, 0.7-0.8 length laterad;",1,0,0,0,0,0,0
+"dummy26 (midline):almost as long at midline as laterad (.9);",0,0,0,0,0,0,0
+"dummy26 (midline):shorter along midline, 0.5-0.6 length laterad;",0,1,1,1,1,1,1
+"dummy27 (front edge):anterior margin flat and sharp;",0,0,0,0,0,0,0
+"dummy27 (front edge):anterior margin rounded;",1,0,0,0,0,0,0
+"dummy27 (front edge):anterior margin sharp, all rows of punctures on same plane;",0,1,0,0,0,0,0
+"dummy27 (front edge):anterior margin sharp, the first row of puncture slightly lower;",0,0,1,1,1,1,1
+"dummy38(weak flange on pronotal panel at the level of mesothoracic spiracle):with flange on pronotal panel at the level of mesothoracic spiracle.",1,0,1,1,0,0,0
+"dummy38(weak flange on pronotal panel at the level of mesothoracic spiracle):with very weak flange on pronotal panel at the level of mesothoracic spiracle.",0,1,0,0,0,0,0
+"dummy38(weak flange on pronotal panel at the level of mesothoracic spiracle):without flange on pronotal panel at the level of mesothoracic spiracle.",0,0,0,0,1,1,1
+"Lateral panel of pronotum:about as wide as prepectus, LPN/PPT approx. 0.8;",0,1,0,0,0,0,0
+"Lateral panel of pronotum:slightly wider than prepectus, LPN/PPT approx. 1.3;",0,0,0,0,0,0,0
+"Lateral panel of pronotum:narrower than prepectus, LPN/PPT approx. 0.6;",1,0,1,0,0,0,0
+"Lateral panel of pronotum:slightly wider than prepectus, LPN/PPT approx. 1.2-1.3;",0,0,0,1,1,1,1
+"dummy39:with 2 rows of punctures, the first slightly lower, with flared margin,",0,0,0,0,0,0,0
+"dummy39:with 2 rows of punctures, the first slightly lower, with angulate margin,",0,0,0,0,0,0,0
+"dummy39:with 2 rows of punctures, the first much lower, with angulate margin,",0,0,0,0,0,0,0
+"dummy39:flat, with 2 or 3 rows of punctures, if 2 with coriarious patch, with angulate margin,",0,0,0,0,0,0,0
+"dummy39:flat, with 2 rows of punctures with narrow interspaces, vantrad with narrow coriarious patch;",1,0,0,0,0,0,0
+"dummy39:flat, with 3 rows of punctures with narrow interspaces, ventrad with narrow coriarious patch;",0,1,0,0,0,0,0
+"dummy39:flat, with 3 or 4 rows of punctures, with flared margin,",0,0,0,0,0,0,0
+"dummy39:flat, 3 rows of punctures, with a angulate margin,",0,0,0,0,0,0,0
+"dummy39:flat, with 2 rows punctures and rugose patch, with flared margin,",0,0,0,0,0,0,0
+"dummy39:flat, with 3 rows of punctures and wide coriarious interspaces dorsad, ventrad with wide coriarious patch;",0,0,0,1,1,1,1
+"dummy39:flat, with 3 rows of punctures and wide coriarious interspaces dorsad, imbricate ventrad with 1 row of punctures at anterior margin;",0,0,0,0,0,0,0
+"dummy39:flat, with 2 rows of punctures with narrow interspaces;",0,0,1,0,0,0,0
+"dummy28(anterior margin):anterior margin rounded;",1,0,0,0,0,0,0
+"dummy28(anterior margin):anterior margin sharp;",0,1,1,0,0,0,0
+"dummy28(anterior margin):anterior margin slightly rounded;",0,0,0,1,1,1,1
+"dummy28(posterior margin alveolae):posterior margin ventrad nearly flat, with row of alveolae.",1,1,1,1,0,0,0
+"dummy28(posterior margin alveolae):posterior margin ventrad grooved, with row of alveolae.",0,0,0,0,1,1,1
+"dummy28(posterior margin alveolae):posterior margin ventrad nearly flat, with very weak row of alveolae.",0,0,0,0,0,0,0
+"dummy28(posterior margin alveolae):posterior margin ventrad weakly grooved, with row of alveolae.",0,0,0,0,0,0,0
+"dummy28(posterior margin alveolae):posterior margin ventrad nearly flat, glabrous or with very weak row of alveolae.",0,0,0,0,0,0,0
+"Prepectus:differentiated from pronotum, with distinct suture;",1,1,1,0,0,1,0
+"Prepectus:nearly indistinguishable from pronotum, without distinct suture;",0,0,0,1,1,0,1
+"dummy30(shape test, prepectus lateral panel):lateral panel of prepectus narrow;",0,0,1,1,0,0,0
+"dummy30(shape test, prepectus lateral panel):lateral panel of prepectus wide;",0,1,0,0,0,0,0
+"dummy30(shape test, prepectus lateral panel):lateral panel of prepectus broad;",1,0,0,0,0,0,0
+"dummy30(shape test, prepectus lateral panel):lateral panel of prepectus slightly wide;",0,0,0,0,1,1,1
+"dummy30(shape test ventral lobe):ventral lobe short, without row of alveolae;",1,1,0,0,0,0,0
+"dummy30(shape test ventral lobe):ventral lobe long, with row of alveolae distinct from pronotal alveolae;",0,0,0,0,1,1,1
+"dummy30(shape test ventral lobe):ventral lobe short, with row of alevolae, indistinguishable from pronotal alveolae;",0,0,0,1,0,0,0
+"dummy30(shape test ventral lobe):ventral lobe long, without row of alveolae;",0,0,1,0,0,0,0
+"dummy31(punctures):central area glabrous, with foveae along dorsal and posterior margins.",1,1,0,1,0,1,1
+"dummy31(punctures):central area punctuate or glabrous, with foveae along dorsal and posterior margins.",0,0,1,0,0,0,0
+"Femoral depression:weakly rugose, with foveae.",1,1,0,0,0,0,0
+"Femoral depression:with small fovea, weakly rugose behind;",0,0,0,0,0,0,0
+"Femoral depression:finely alveolate, with weak rugae;",0,0,0,0,0,0,0
+"Femoral depression:foveate;",0,0,0,0,0,0,0
+"Femoral depression:densely rugose, with foveae.",0,0,1,1,0,0,0
+"Femoral depression:nearly glabrous.",0,0,0,0,1,1,1
+"Midlobe of mesoscutum:with raised smooth transverse tubercle;",1,1,0,0,0,0,0
+"Midlobe of mesoscutum:without smooth transverse tubercle;",0,0,1,1,1,1,1
+"dummy31(Midlobe of mesoscutum punctures):with rounded, shallow punctures and narrow interspaces coalesced to form weak rugae along pronotum;",0,0,0,0,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with rounded, shallow punctures and narrow interspaces;",0,0,0,0,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with rounded, shallow punctures and narrow interspaces often coalesced to form weak rugae;",0,0,0,0,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with arcuate transverse rugae;",0,0,0,0,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with large, round punctures and very wide coriarious interspaces;",0,0,0,0,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with very large angulate punctures and very narrow, weakly coriarious interspaces.",0,0,1,0,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with weak angulate punctures and narrow interspaces;",0,0,0,0,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with large, deep rounded punctures and wide coriarious interspaces;",0,0,0,0,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with small round, shallow punctures and wide mostly glabrous interspaces, often reticulate along pronotum;",0,0,0,0,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with small round, shallow punctures and wide mostly glabrous interspaces;",0,0,0,0,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with very large angulate punctures and narrow interspaces, wider anterad.",1,0,0,0,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with very large angulate punctures and narrow interspaces, wider and coriarious anterad.",0,1,0,0,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with small round punctures and wide coriarious interspaces.",0,0,0,0,0,0,1
+"dummy31(Midlobe of mesoscutum punctures):with small round punctures and very wide coriarious interspaces.",0,0,0,0,0,1,0
+"dummy31(Midlobe of mesoscutum punctures):with large, weakly angulate punctures and narrow reticulate interspaces;",0,0,0,1,0,0,0
+"dummy31(Midlobe of mesoscutum punctures):with large round punctures and wide coriarious interspaces, interspaces nearly glabrous along the midline;",0,0,0,0,1,0,0
+"Lateral lobe of mesoscutum:glabrous along notauli;",0,0,1,1,1,1,1
+"Lateral lobe of mesoscutum:weakly coriarious;",0,0,0,0,0,0,0
+"Lateral lobe of mesoscutum:coriarious;",0,0,0,0,0,0,0
+"Lateral lobe of mesoscutum:strongly rugulose along notauli;",0,1,0,0,0,0,0
+"Lateral lobe of mesoscutum:weakly rugulose along notauli;",1,0,0,0,0,0,0
+"Lateral lobe of mesoscutum:very weakly coriarious to glabrous;",0,0,0,0,0,0,0
+"Lateral lobe of mesoscutum:weakly coriarious, glabrous anteriorad;",0,0,0,0,0,0,0
+"Lateral lobe of mesoscutum:strongly coriarious, with weak angulate punctures and wide coriaceous interspaces.",0,0,0,0,0,0,0
+"dummy30(laterad sculpture):rugulose-punctate.",1,1,1,0,0,0,0
+"dummy30(laterad sculpture):coriarious-punctate.",0,0,0,1,1,1,1
+"Scutellum:about as long as mesoscutum, SC/MSC approx. 1.1;",1,1,1,1,1,1,1
+"Scutellum:longer than mesoscutum, SC/MSC 1.2-1.3;",0,0,0,0,0,0,0
+"dummy 33(scutellum posterior margin):posterior margin smoothly rounded;",1,1,0,1,1,1,1
+"dummy 33(scutellum posterior margin):posterior margin smoothly rounded or weakly bilobed;",0,0,1,0,0,0,0
+"dummy34 (scutellum sculpture):with large, deep rounded punctures and wide coriarious interspaces;",0,0,0,0,0,0,0
+"dummy34 (scutellum sculpture):with angulate punctures and narrow interspaces, with a weak ridge along midline;",0,0,0,0,0,0,0
+"dummy34 (scutellum sculpture):with rounded  punctures and narrow interspaces;",0,0,0,0,0,0,0
+"dummy34 (scutellum sculpture):with angulate punctures and very narrow interspaces.",1,1,0,0,0,0,0
+"dummy34 (scutellum sculpture):with round punctures and narrow interspaces;",0,0,0,0,0,0,0
+"dummy34 (scutellum sculpture):with large, round punctures and very wide coriarious interspaces;",0,0,0,0,0,0,0
+"dummy34 (scutellum sculpture):with weak angulate punctures and narrow interspaces;",0,0,0,0,0,0,0
+"dummy34 (scutellum sculpture):with round punctures and wide coriarious interspaces.",0,0,0,0,0,0,1
+"dummy34 (scutellum sculpture):with round punctures and very wide coriarious interspaces.",0,0,0,0,0,1,0
+"dummy34 (scutellum sculpture):with weakly angulate punctures and narrow reticulate interspaces.",0,0,0,1,0,0,0
+"dummy34 (scutellum sculpture):with round punctures and wide glabrous interspaces, coriarious on periphery.",0,0,0,0,1,0,0
+"dummy34 (scutellum sculpture):with angulate punctures and very narrow, weakly coriarious interspaces.",0,0,1,0,0,0,0
+"Axilla:glabrous dorsad, with oblique costae above transverse ridge, imbricate below with crenulate ventral margin;",0,0,0,0,0,0,0
+"Axilla:glabrous to weakly imbricate dorsad, often with oblique costae above transverse ridge, imbricate below with crenulate ventral margin;",0,0,0,0,0,0,0
+"Axilla:weakly imbricate dorsad, alveolate above transverse ridge, with transverse rugulae, imbricate below with crenuate ventral margin;",0,0,0,0,0,0,0
+"Axilla:weakly imbricate dorsad, alveolate or with oblique costae above transverse ridge, imbricate below with crenuate ventral margin;",0,0,0,0,0,0,0
+"Axilla:weakly imbricate dorsad, with oblique costae above transverse ridge, imbricate below with crenulate ventral margin;",0,0,0,0,0,0,0
+"Axilla:weakly imbricate dorsad, without costae above transverse ridge, imbricate below with crenulate ventral margin;",0,0,0,0,0,0,0
+"Axilla:weakly imbricate, weak fovea above axillar carina, without transverse ridge;",0,0,0,0,0,0,0
+"Axilla:punctate dorsad, imbricate below.",1,0,0,1,1,1,1
+"Axilla:punctate and imbricate dorsad, imbricate below.",0,0,0,0,0,0,0
+"Axilla:densely punctate dorsad, imbricate below.",0,1,1,0,0,0,0
+"dummy33 (axilla post carina):with a distinct posterior carina;",0,0,0,0,0,0,0
+"dummy33 (axilla post carina):with distinct posterior carina, to mid-height;",0,0,0,0,0,0,0
+"dummy33 (axilla post carina):with long posterior carina or with irregular ridge of coalesced fovea;",0,0,0,0,0,0,0
+"dummy33 (axilla post carina):with short posterior carina or with irregular ridge of coalesced fovea;",0,0,0,0,0,0,0
+"dummy33 (axilla post carina):without distinct posterior carina or ridge;",0,0,0,0,0,0,0
+"dummy33 (axilla post carina):without distinct posterior carina, foveate;",0,0,0,0,0,0,0
+"dummy33 (axilla post carina):without distinct posterior carina, with irregular ridge of coalesced fovea;",0,0,0,0,0,0,0
+"Axillula:elongate fingerlike lobe, longer than width at base, glabrous;",0,0,0,0,0,0,0
+"Axillula:narrow triangular lobe, longer than width at base, with vertical costae;",0,0,0,0,0,0,0
+"Axillula:triangular fingerlike lobe, upper margin reflexed dorsad at base, with vertical costae;",0,0,0,0,0,0,0
+"Axillula:short and triangular, only as long as width at base, upper margin reflexed dorsad at base, glabrous;",0,0,0,0,0,0,0
+"Axillula:short and rounded, only as long as width at base, glabrous;",0,0,0,0,0,0,0
+"Axillula:wide triangular lobe, as long as width at base, glabrous.",1,1,0,0,0,0,0
+"Axillula:short triangular lobe, shorter than width at base, glabrous.",0,0,1,1,1,1,1
+"Propodeum:length along midline about one-third width of propodeum;",1,1,1,1,1,1,1
+"Propodeum:short, length along midline about one-fifth width of propodeum;",0,0,0,0,0,0,0
+"dummy36 (submedian area sculpture)0:submedian area glabrous to weakly imbricate, with single weak fovea along median carina;",0,0,0,0,0,0,0
+"dummy36 (submedian area sculpture)0:submedian area glabrous to weakly imbricate, with weak foveae along median carina;",0,0,0,0,0,0,0
+"dummy36 (submedian area sculpture)0:submedian area glabrous to weakly imbricate, with arcuate costae laterad, with weak foveae along median carina;",0,0,0,0,0,0,0
+"dummy36 (submedian area sculpture)0:submedian area glabrous to weakly imbricate with weak fovea usually with alveolate sculpture along median carina;",0,0,0,0,0,0,0
+"dummy36 (submedian area sculpture)0:submedian area glabrous to weakly imbricate, with arcuate costae laterad, with deep fovea with 3-5 short transverse costae along median carina;",0,0,0,0,0,0,0
+"dummy36 (submedian area sculpture)0:submedian area shagreened to glabrous, with weak groove along median carina;",1,0,1,1,1,1,0
+"dummy36 (submedian area sculpture)0:submedian area imbricate, with weak groove along median carina;",0,0,0,0,0,0,1
+"dummy36 (submedian area sculpture)0:submedian area glabrous, with weak groove along median carina;",0,0,0,0,0,0,0
+"dummy36 (submedian area sculpture)0:submedian area shagreened, with weak groove along median carina;",0,1,0,0,0,0,0
+"dummy35 (laterad sculpture and submedian area shape):imbricate laterad; delimited laterad and ventrad by complete plicae, dorsad by transverse band of foveae;",0,0,0,0,0,0,1
+"dummy35 (laterad sculpture and submedian area shape):alveolate-rugose laterad; without distinct lateral plicae, delimited ventrad by plicae, dorsad by transverse band of foveae;",1,1,0,0,0,0,0
+"dummy35 (laterad sculpture and submedian area shape):delimited laterad and ventrad by plicae and foveae, dorsad by transverse band of foveae and with short median carina;",0,0,0,0,0,0,0
+"dummy35 (laterad sculpture and submedian area shape):weakly alveolate-rugose laterad; delimited laterad and ventrad by complete plicae, dorsad by transverse band of foveae;",0,0,1,0,0,0,0
+"dummy35 (laterad sculpture and submedian area shape):glabrous laterad; plicae incomplete laterad, delimited ventrad by plicae, dorsad by transverse band of foveae;",0,0,0,0,1,1,0
+"dummy35 (laterad sculpture and submedian area shape):glabrous laterad; delimited laterad and ventrad by complete plicae and wide foveae near spiracle, dorsad by transverse band of foveae;",0,0,0,1,0,0,0
+"dummy35 (submedian area shape)1:plicae slightly obliterated laterad, delimited ventrad by plicae, dorsad by transverse band of foveae;",0,0,0,0,0,0,0
+"dummy35 (submedian area shape)1:alveolate-rugose laterad without distinct lateral plicae, delimited ventrad by plicae, dorsad by transverse band of foveae;",0,0,0,0,0,0,0
+"dummy35 (submedian area shape)1:delimited laterad and ventrad by plicae and foveae, dorsad by transverse band of foveae and with short median carina;",0,0,0,0,0,0,0
+"dummy35 (submedian area shape)1:alveolate-rugose laterad, delimited laterad and ventrad by plicae, dorsad by transverse band of foveae;",0,0,0,0,0,0,0
+"dummy35 (submedian area shape)1:plicae extensively obliterated laterad, delimited ventrad by plicae, dorsad by transverse band of foveae;",0,0,0,0,0,0,0
+"dummy35 (submedian area shape)1:delimited laterad by plicae and large foveae near spiracles, ventrad by plicae, dorsad by transverse band of foveae;",0,0,0,0,0,0,0
+"dummy35 (callus):callus alveolate-rugose around spiracle and ventrad;",0,0,0,0,0,0,0
+"dummy35 (callus):callus with wide foveae around spiracle, glabrous ventrad;",0,0,0,0,0,0,0
+"dummy35 (callus):callus with narrow foveae around spiracle, glabrous ventrad;",0,0,0,0,0,0,0
+"dummy37 (nucha):glabrous, expanded dorsad, contiguous with narrow or wide median carina, with transverse rugae, median carina shorter than metanotum;",0,0,0,0,0,0,0
+"dummy37 (nucha):coriarious, expanded dorsad, contiguous with narrow or wide median carina, with transverse rugae, median carina shorter than metanotum;",0,0,0,0,0,0,0
+"dummy37 (nucha):transverse rugae, arcuate and not expanded dorsad;",0,0,0,0,0,0,0
+"dummy37 (nucha):nucha rugulose.",1,1,0,0,1,1,1
+"dummy37 (nucha):nucha weakly rugulose.",0,0,1,1,0,0,0
+"dummy88 (hairs):with long golden hairs;",0,0,0,0,0,0,0
+"dummy88 (hairs):with short white hairs;",0,0,0,0,0,0,0
+"Forewing:hyaline, with yellow venations;",1,1,1,1,1,1,1
+"dummy(post marginal vein):postmarginal vein about one-half lengh of marginal vein (0.4-0.5);",0,0,0,0,0,0,0
+"dummy(post marginal vein):postmarginal vein short, 0.6-0.7 length of marginal vein, 1.4-1.6 length of stigmal vein;",0,0,0,1,0,0,0
+"dummy(post marginal vein):postmarginal vein long,  0.8-0.9 length of marginal vein, 2-3 length of stigmal vein;",0,0,0,0,0,0,0
+"dummy(post marginal vein):postmarginal vein long,  0.8-0.9 length of marginal vein, approx. twice the length of stigmal vein;",1,1,1,0,0,0,0
+"dummy(post marginal vein):postmarginal vein very short, 0.5-0.6 length of marginal vein, 0.8-1.0 length of stigmal vein;",0,0,0,0,0,1,0
+"dummy(post marginal vein):postmarginal vein long, 0.8-0.9 length of marginal vein, 1.4-1.6 length of stigmal vein;",0,0,0,0,1,0,1
+"dummy8 (parastigma):parastigma smoothly joining marginal and submarginal veins and usually with 3 linear sensilla forming broad triangle;",0,0,0,0,0,0,0
+"dummy8 (parastigma):parastigma swollen with weak process and usually 3 tightly grouped sensilla forming equilateral triangle;",0,0,0,0,0,0,0
+"dummy8 (parastigma):parastigma swollen with abrupt process and usually 3 tightly grouped sensilla forming equilateral triangle;",0,0,0,0,0,0,0
+"dummy9 (uncus):stigmal vein with weak uncus.",0,0,1,0,1,1,1
+"dummy9 (uncus):stigmal vein rounded without uncus.",1,1,0,1,0,0,0
+"Metasoma(0):profile in lateral view rounded.",0,0,0,0,0,0,0
+"Metasoma(0):profile in lateral view angulate.",0,0,0,0,0,0,0
+"Metasoma(1):rounded, with a high raised and excavated scale, with strong rugae below, apex deeply cleft and rugose;",0,0,0,0,0,0,0
+"Metasoma(1):rounded, with a low raised and excavated scale, costate to rugulose, apex weakly emarginate;",0,0,0,0,0,0,0
+"Metasoma(1):transverse, with a raised, rounded node and transverse costae;",0,0,0,0,0,0,0
+"Metasoma(1):transverse, with a raised, rounded node and transverse costae, anterior margin weakly excised along midline;",0,0,0,0,0,0,0
+"Metasoma(1):transverse, with a raised, rounded node and transverse costae, anterior margin deeply cleft along midline;",0,0,0,0,0,0,0
+"Metasoma(1):short, and straplike, roughened, light brown in colour, without a raised dorsal surface, posterior margin excised;",0,0,0,0,0,0,0
+"Metasoma(1):petiole short and straplike, glabrous, without raised scale;",1,1,1,1,0,0,0
+"Metasoma(1):quadrate, coarsely sculptured, without a raised dorsal surface, with large median fovea;",0,0,0,0,0,0,0
+"Metasoma(1):petiole short with glabrous to weakly rugulose raised scale;",0,0,0,0,1,1,1
+"Gt2:glabrous, concave, strigose along midline;",0,0,0,0,0,0,0
+"Gt2:glabrous, concave, weakly strigose along midline;",0,0,0,0,0,0,0
+"Gt2:glabrous, concave, strigose along midline, weakly imbricate laterad;",0,0,0,0,0,0,0
+"Gt2:glabrous, concave, weakly coriaceous along petiole;",0,0,0,0,0,0,0
+"Gt2:glabrous, posterior margin concave.",1,0,0,0,0,0,0
+"Gt2:glabrous, posterior margin weakly concave at middle.",0,0,0,1,1,1,1
+"Gt2:weakly wrinkled along midline, weakly imbricate laterad, posterior margin straight.",0,1,0,0,0,0,0
+"Gt2:glabrous, posterior margin straight.",0,0,1,0,0,0,0
+"dummy39 (groove and nubbins):with median groove and weak lateral protuberances;",0,0,0,0,0,0,0
+"dummy39 (groove and nubbins):with very short and weak median groove and weak lateral protuberances;",0,0,0,0,0,0,0
+"dummy39 (groove and nubbins):without median groove and lateral protuberances, with weak fold along midline;",0,0,0,0,0,0,0
+"dummy39 (groove and nubbins):with deep median groove and distinct lateral protuberances;",0,0,0,0,0,0,0
+"dummy39 (groove and nubbins):with median groove, without lateral protuberances;",0,0,0,0,0,0,0
+"dummy39 (groove and nubbins):without median groove and lateral protuberances;",0,0,0,0,0,0,0
+"Gt3:imbricate-punctuate dorsad and laterad.",0,1,0,0,0,0,0
+"Gt3:glabrous.",1,0,0,0,1,0,1
+"Gt3:glabrous or weakly imbricate dorsad.",0,0,0,1,0,1,0
+"Male:Unknown.",1,1,0,0,0,0,0
+"Length (male):approx. 1.5 - 1.7mm.",0,0,0,0,0,0,1
+"Length (male):approx. 1.5 - 1.6mm.",0,0,0,0,0,1,0
+"Length (male):approx. 1.9 - 2.3mm.",0,0,0,1,0,0,0
+"Length (male):approx. 2.0-  2.3mm.",0,0,1,0,0,0,0
+"Length (male):approx. 1.4 - 1.6mm.",0,0,0,0,1,0,0
+"Color (male):similar to female.",0,0,0,1,0,0,1
+"Color (male):similar to female except: mesonotum may have green-blue reflections.",0,0,0,0,1,0,0
+"Color (male):similar to female except, mesosoma may have strong green-blue reflections.",0,0,1,0,0,0,0
+"Color (male):similar to female except: mesonotum without reflections, flagellum and tarsi brown or white.",0,0,0,0,0,1,0
+"Eyes (male):in dorsal view more bulbous.",0,0,0,1,1,0,1
+"Eyes (male):in dorsal view same or more bulbous.",0,0,1,0,0,1,0
+"Head (Male):in frontal view more transverse, wider than high, HW/HH approx. 1.3;",0,0,0,0,0,0,0
+"dummy1(head dorsal):in dorsal view less transverse, HW/HL 2.1-2.2;",0,0,0,0,0,0,0
+"dummy1(head dorsal):in dorsal view less transverse, HW/HL approx. 2.1;",0,0,0,0,0,0,0
+"dummy1(head dorsal):in dorsal view more quadrate.",0,0,0,0,0,0,0
+"dummy 12(head w vs pronotum w):much wider than pronotum, HW/PW approx. 1.4",0,0,0,1,0,0,0
+"Ocelli (male):larger.",0,0,0,1,1,1,1
+"Malar space (male):shorter,",0,0,0,0,0,0,1
+"Malar space (male):as long as, or shorter.",0,0,0,0,0,1,0
+"Malar space (male):shorter.",0,0,0,1,1,0,0
+"dummy2(Malar sculpture):with stronger coriarious sculpture.",0,0,0,0,0,0,1
+"F1:transverse.",0,0,0,0,0,0,0
+"Scape (male):about 0.5-0.6 EH;",0,0,0,0,0,1,0
+"Scape (male):about 0.5 EH;",0,0,1,1,1,0,1
+"dummy39(male scape shape):elongate, length about >5x width above radicle;",0,0,1,0,1,0,0
+"dummy39(male scape shape):stout or elongate, length about 4x or >5x width above radicle;",0,0,0,1,0,0,0
+"dummy39(male scape shape):weakly stout, length about 4.7x width above radicle;",0,0,0,0,0,0,1
+"dummy39(male scape shape):stout, length about 4.4x or 4.5x width above radicle;",0,0,0,0,0,1,0
+"dummy40(male scape expansion):weakly expanded distad, about 1.1 width above radicle;",0,0,1,0,0,0,0
+"dummy40(male scape expansion):slightly expanded distad, about 1.2 width above radicle;",0,0,0,0,0,0,1
+"dummy40(male scape expansion):strongly expanded distad, about 1.4 width above radicle;",0,0,0,0,1,1,0
+"dummy41(punctuate area coverage):punctures covering about 0.5x scape length.",0,0,0,0,0,1,0
+"dummy41(punctuate area coverage):punctures covering about 0.2x scape length.",0,0,1,0,0,0,0
+"dummy41(punctuate area coverage):punctures covering about 0.3x scape length.",0,0,0,0,1,0,0
+"dummy41(punctuate area coverage):punctures covering about 0.4x scape length.",0,0,0,1,0,0,1
+"Mesosoma (male):more elongate, length approx. 1.5 maximum width.",0,0,0,0,1,0,0
+"Mesosoma (male):more elongate, length approx. 1.4 maximum width.",0,0,0,0,0,0,1
+"Mesosoma (male):slightly more elongate, length approx. 1.3-1.4 maximum width.",0,0,0,0,0,1,0
+"Propodeum submedian area sculpture (male):glabrous to weakly imbricate.",0,0,0,0,0,0,0
+"Propodeum submedian area sculpture (male):rugose-imbricate, with strong foveae along median carina.",0,0,1,0,0,0,0
+"Gt3 (male):weakly imbricate dorsad.",0,0,0,0,0,0,1
+"Gt3 (male):glabrous or imbricate dorsad.",0,0,1,0,1,0,0
+"Aedeagus:with a pair of lateral spines.",0,0,0,0,1,1,1
+"Aedeagus:without a pari of lateral spines.",0,0,1,1,0,0,0
