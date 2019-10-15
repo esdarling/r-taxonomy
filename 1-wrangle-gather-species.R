@@ -16,12 +16,17 @@ unique(lucid$x)
 #keep only the text after dummy#:
 pattern = "^dummy.*:"
 
+dim(lucid)
+
+?pivot_longer
+
 lucid <- lucid %>% 
   #mutate(order = seq(from = 1, to = nrow(lucid), by = 1)) %>% 
-  gather("species", "trait.01", -1) %>%  #-X excludes X column from gather
+  #gather("species", "trait.01", -1) %>%  #-X excludes X column from gather
+  pivot_longer(-1, names_to = "species", values_to = "trait") %>% 
   mutate(character = str_remove(x, pattern), 
          character = str_replace_all(character, ":", ": ")) %>% 
-  filter(trait.01 != 0)
+  filter(trait != 0)
 
 lucid
 unique(lucid$species)
