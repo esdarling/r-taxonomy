@@ -8,7 +8,7 @@ library(glue)
 
 # #load material species --------------------------------------------------
 
-data <- read_excel(here("data", "Yemen and UAE Perilampus-Darwin Core Revised for Emily.xlsx")) %>% 
+data <- read_excel(here("data", "Yemen and UAE Perilampus-Darwin Core Revised for Emily 2.xlsx")) %>% 
   clean_names() %>% 
   remove_empty() %>% 
   mutate(across(where(is.character), str_trim), 
@@ -44,46 +44,69 @@ data %>%
 
 
 # specimen summary with rainerius -----------------------------------------------------
+names(data)
+
+data$verbatim_longitude
+#extra backslashes? 
+#str_remove(data$verbatim_latitude, "\\\\")
+
+data %>% 
+  filter(date_label == "1-31 Mar 2016") %>% 
+  view()
 
 summary <- data %>% 
-  filter(species == "rainerius") %>%
+  #filter(species == "rainerius") %>%
   mutate(id = glue("{object_number}-{repository}"), 
          locality_id = glue("{locality}, {latitude}, {longitude}")) %>% 
-  group_by(country, 
+  group_by(species, 
+           country, 
            locality_id, 
            date_label, 
            collector_s,
            collecting_method, 
            sex) %>% 
   summarize(n = n(), 
-            specimens = paste(id, collapse = "; ")) %>% 
+            specimen_id = paste(id, collapse = ", ")) %>% 
   mutate(sex = case_when(
     sex == "male" & n > 1 ~ "males", 
     sex == "female" & n > 1 ~ "females", 
     TRUE ~ sex), 
-    specimens_by_sex = glue("{n} {sex}: {specimens}")) %>% 
+    specimens_by_sex = glue("{n} {sex}: {specimen_id}")) %>% 
   #names() %>% 
   select(-sex, 
          -n, 
-         -specimens)
+         -specimen_id) %>% 
+  group_by(species, 
+           country, 
+           locality_id, 
+           date_label, 
+           collector_s,
+           collecting_method) %>% 
+  summarize(specimens = paste(specimens_by_sex, collapse = "; "))
+  
+summary %>% 
+  filter(date_label == "1-30 Jun 2016") %>% 
+  view()
   
 summary
 
-locality_list <- unique(summary$locality_id)
-locality_list
-
-
+summary %>% 
+  group_by(species, 
+           locality_id) %>% 
+  count(date_label) %>% 
+  arrange(-n)
 
 # full loop ---------------------------------------------------------------
 species_list <- unique(data$species)
 
+#for (i in species_list) {
 for (i in species_list) {
+  print(glue("Perilampus {i}"))
+  
   species_data <- data %>%  
     filter(species == i)
-  #filter(species == "rainerius")
-  print(i)
-  
-  country_list <- unique(species_data$country)
+
+  country_list <- unique(species_data$country) 
   
   for (j in country_list) {
     
@@ -100,23 +123,25 @@ for (i in species_list) {
       summarize(print = paste(print_sex, collapse = ", "))
     
     print(glue("{j}: {sex_tally}"))
-
-for (k in locality_list) {
+    
+    locality_list <- species_data %>% 
+      filter(country == j) %>%
+      distinct(locality) %>% 
+      pull(locality)
+    
+ for (k in locality_list) {
   
   locality_specimens <- summary %>%
     mutate(locality_id = as.character(locality_id)) %>%
-    filter(locality_id == k) %>%
-    #filter(str_detect(locality_id, "Al Houbara")) %>%
-    mutate(date_collector_method_specimens = glue("{date_label}, {collector_s}, {collecting_method}, ({specimens_by_sex})")) %>%
+    filter(species == i & 
+             str_detect(locality_id, k)) %>% 
+    mutate(date_collector_method_specimens = glue("{date_label}, {collector_s}, {collecting_method} ({specimens})")) %>%
     ungroup() %>%
-    summarize(x = paste(date_collector_method_specimens, collapse = "; "))
+    summarize(x = paste(date_collector_method_specimens, collapse = "; ")) %>% 
+    pull(x)
   
-  locality_specimens$x
-  
-  print(glue("{k}: {locality_specimens$x}"))
-}
-}
-}
+  print(glue("{k}: {locality_specimens}.")) }}}
+
 
 
 
