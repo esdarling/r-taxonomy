@@ -101,8 +101,10 @@ summary <- data %>%
          sex = case_when(
     sex == "male" & n > 1 ~ "males", 
     sex == "female" & n > 1 ~ "females", 
-    TRUE ~ sex), 
-    specimens_by_sex = glue("{n} {sex}: {specimen_id}")) %>% 
+    TRUE ~ sex)) %>% 
+  mutate(specimens_by_sex = case_when( 
+    type == "Holotype" ~ glue("{sex}: {specimen_id}"), #don't put '1' when it is a Holotype
+    TRUE ~ glue("{n} {sex}: {specimen_id}"))) %>% 
   #names() %>% 
   select(-sex, 
          -n, 
@@ -118,6 +120,14 @@ summary <- data %>%
   
 summary %>% 
   filter(date_label == "1-30 Jun 2016") %>% 
+  pull(specimens)
+
+summary %>% 
+  filter(type == "Holotype") %>% 
+  pull(specimens)
+
+summary %>% 
+  filter(type == "Paratype") %>% 
   pull(specimens)
   
 summary %>% 
@@ -141,7 +151,7 @@ species_list <- unique(data$species)
 for (i in species_list) {
   print(glue("Perilampus {i}"))
   
-  #i <- "rainerius"
+  #i <- "houbaraensis"
   
   species_data <- data %>%  
     filter(species == i) %>% 
@@ -155,26 +165,53 @@ for (i in species_list) {
   
   for (j in type_list) {
   
+    #j <- "Paratype"
     #j <- "Other material examined"
     
-    sex_tally <- species_data %>% 
-      filter(type == j) %>% 
-      #filter(country != "United Arab Emirates") %>% 
-      group_by(sex) %>% 
+    #what type names do use - depends on how many types there are
+    species_data %>% 
+      tabyl(type)
+    
+    type_detail <- species_data %>%
+      filter(species == i) %>% 
+      count(type) %>% 
+      mutate(n_types = n(), 
+             type_to_print = case_when(
+               n_types == 1 & type == "Other material examined" ~ "Material examined", #make "Material examined for non-type
+               type == "Paratype" & n>1 ~ "Paratypes", 
+               TRUE ~ as.character(type)))
+  
+    type_sex <- species_data %>%
+      filter(species == i) %>%  
+      group_by(species, 
+               type, 
+               sex) %>% 
       count() %>% 
-      mutate(sex_count = case_when(
+      mutate(sex = case_when(
         n > 1 ~ glue("{n} {sex}s"), 
         TRUE ~ glue("{n} {sex}"))) %>% 
-      ungroup() %>% 
-      summarize(specimens_by_sex = paste(sex_count, collapse = ", "))
+      group_by(species, 
+               type) %>%
+      summarize(specimens_by_sex = paste(sex, collapse = ", "))
     
-    #sex_tally
+    type_detail <- type_sex %>% 
+      left_join(type_detail, by = "type") %>% 
+      filter(type == j)
     
-    #print Material Examined in front of holotype.
-    ifelse(j == "Holotype",
-           print(glue("Material Examined. {j}. {sex_tally}.")), 
-           print(glue("{j}. {sex_tally}.")))
+    #type_detail
     
+    #print type title nd required detail
+    #Material examined. Holotype. 
+    #Paratype(s). Sex count. 
+    #Material examined or Other material examined. 
+    
+    ifelse(j == "Holotype", 
+           print(glue("Material examined. {j}.")), 
+           ifelse(j == "Paratype",
+                  print(glue("{type_detail$type_to_print}. {type_detail$specimens_by_sex}.")), 
+                  print(glue("{type_detail$type_to_print}.")))) #Non-type
+    
+    #create country list for species and type
     country_list <- species_data %>% 
       filter(type == j)  %>% 
       distinct(country) %>%
@@ -185,28 +222,53 @@ for (i in species_list) {
       
     #k <- "United Arab Emirates"
     
+    specimens_sex_country <- species_data %>%
+      filter(species == i & 
+               type == j & 
+               country == k) %>% 
+      group_by(species, 
+               type, 
+               country, 
+               sex) %>% 
+      count() %>% 
+      mutate(sex = case_when(
+        n > 1 ~ glue("{n} {sex}s"), 
+        TRUE ~ glue("{n} {sex}"))) %>% 
+      group_by(species, 
+               type, 
+               country) %>%
+      summarize(specimens_by_sex = paste(sex, collapse = ", "))
+    
+    specimens_sex_country
+  
+      
     locality_specimens <- summary %>%
       filter(species == i & 
                type == j & 
                country == k) %>% 
       group_by(locality_id, date_label, collector_s, collecting_method) %>% 
-    # mutate(record = glue("{locality_id} {date_label}, {collector_s}, {collecting_method} ({specimens})")) %>%
-    # ungroup() %>% 
       summarize(specimens = paste(specimens, collapse = "; ")) %>% 
-      mutate(collecting_summary_by_date =glue("{date_label}, {collector_s}, {collecting_method} ({specimens})")) %>% 
+      mutate(collecting_summary_by_date = case_when( #deal with missing collecting method
+        is.na(collecting_method) ~ glue("{date_label}, {collector_s} ({specimens})"), 
+        TRUE ~  glue("{date_label}, {collector_s}, {collecting_method} ({specimens})"))) %>% 
       group_by(locality_id) %>% 
       summarize(collecting_summary_by_locality = paste(collecting_summary_by_date, collapse = "; ")) %>% 
       mutate(locality_summary = glue("{locality_id}: {collecting_summary_by_locality}")) %>% 
       ungroup() %>% 
       summarize(locality_final = paste(locality_summary, collapse = ". ")) %>% 
-      pull(locality_final)
+      pull(locality_final) 
     
     locality_specimens
     
-    #START HERE
+    #print sex tally only for non-type records
+    #j <- "Material examined"
     
-    print(glue("{k}: {locality_specimens}.")) 
+    ifelse(j %in% c("Holotype", "Paratype"), 
+           print(glue("{k}: {locality_specimens}.")), 
+           print(glue("{k}: {specimens_sex$specimens_by_sex}. {locality_specimens}.")))
+           
     }}}
+    
 
 
 
