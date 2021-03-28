@@ -9,7 +9,7 @@ library(parzer)
 
 # #load material species --------------------------------------------------
 
-data <- read_excel(here("data", "Yemen and UAE Perilampus-Darwin Core Revised for Emily 3.xlsx")) %>% 
+data <- read_excel(here("data", "Yemen and UAE Perilampus-Darwin Core Revised for Emily 4.xlsx")) %>% 
   clean_names() %>% 
   remove_empty(c("cols", "rows")) %>% 
   mutate(across(where(is.character), str_trim), 
@@ -22,14 +22,31 @@ data <- read_excel(here("data", "Yemen and UAE Perilampus-Darwin Core Revised fo
          type = fct_relevel(type, 
                             "Holotype", 
                             "Paratype", 
-                            "Other material examined")) %>% 
-  mutate(lat_degree = parse_parts_lat(verbatim_latitude), 
-         lon_degree = parse_parts_lon(verbatim_longitude)) %>%
-  tidyr::unpack(c(lat_degree, lon_degree), 
-                names_sep = "_") %>% 
-  mutate(locality_id = glue("{locality}, {lat_degree_deg}degree{lat_degree_min}'N, {lon_degree_deg}degree{lon_degree_min}'E"))
+                            "Other material examined")) 
 
-data
+#recraft lat-longitudes 
+#use verbatim (no matter the formatting)
+#if no verbatim, then parse a lat-degree-min from decimal degrees
+
+#update: dad will check holotype lat-long by hand
+data %>% 
+  select(contains("latitude"))
+
+data %>% 
+  select(contains("longitude"))
+
+data <- data %>% 
+  # mutate(lat_degree = parse_parts_lat(verbatim_latitude), 
+  #        lon_degree = parse_parts_lon(verbatim_longitude)) %>%
+  # tidyr::unpack(c(lat_degree, lon_degree), 
+  #               names_sep = "_") %>% 
+  #mutate(locality_id = glue("{locality}, {lat_degree_deg}{lat_degree_min}'N, {lon_degree_deg}degree{lon_degree_min}'E"))
+  mutate(locality_id = 
+           glue("{locality}, {verbatim_latitude} {verbatim_longitude}"))
+
+data %>% 
+  pull(locality_id) %>% 
+  head()
 
 data %>% 
   tabyl(species)
@@ -84,10 +101,18 @@ data %>%
 
 names(data)
 
+data %>% 
+  tabyl(notes)
+
+
 summary <- data %>% 
   #filter(species == "rainerius") %>%
-  mutate(id = glue("{object_number}-{repository}")) %>% 
-  group_by(species, 
+  #mutate(id = glue("{object_number}-{repository}")) %>% #add notes column if present 
+  mutate(id = case_when(
+    is.na(notes) ~ glue("{object_number}-{repository}"), 
+    TRUE ~ glue("{object_number}-{repository}, {notes}"))) %>% 
+  #filter(!is.na(notes)) %>% pull(id)
+    group_by(species, 
            country, 
            locality_id, 
            type, 
@@ -121,6 +146,13 @@ summary <- data %>%
 summary %>% 
   filter(date_label == "1-30 Jun 2016") %>% 
   pull(specimens)
+
+summary %>% 
+  filter(str_detect(locality_id, "Wadi Bih")) %>% 
+  pull(specimens)
+
+summary %>% 
+  filter(str_detect(specimens, "DC Darling"))
 
 summary %>% 
   filter(type == "Holotype") %>% 
@@ -265,7 +297,7 @@ for (i in species_list) {
     
     ifelse(j %in% c("Holotype", "Paratype"), 
            print(glue("{k}: {locality_specimens}.")), 
-           print(glue("{k}: {specimens_sex$specimens_by_sex}. {locality_specimens}.")))
+           print(glue("{k}: {specimens_sex_country$specimens_by_sex}. {locality_specimens}.")))
            
     }}}
     
