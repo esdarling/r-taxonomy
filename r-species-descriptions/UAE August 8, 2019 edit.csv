@@ -1,4 +1,4 @@
-,P. ardens,P. awbalus,P. khor,P. zelliger,P. sarabus,P. houbaraensis,P. yemenensis
+feature,P. ardens,P. awbalus,P. khor,P. zelliger,P. sarabus,P. houbaraensis,P. yemenensis
 Length:2-4mm;,0,0,0,0,0,0,0
 "Length:small, 2-3mm;",0,0,0,0,0,0,0
 Length:2-3.5mm;,0,0,0,0,0,0,0
@@ -59,7 +59,7 @@ Antennae:scape dark brown to black;,0,0,0,0,0,0,0
 "Antennae:scape and pedicel brown, flagellum yellow.",0,0,0,0,0,0,0
 "Antennae:Antennae: scape brown with iridescence, lighter distad, pedicel brown, flagellum yellow.",0,0,0,0,0,1,0
 "Antennae:Antennae: scape brown, lighter distad, pedicel and flagellum brown.",0,0,1,0,1,0,1
-
+,,,,,,,
 "Head:in frontal view transverse, wider than high, HW/HH approx. 1.3, sparsely setose to glabrous;",1,0,1,0,0,0,0
 "Head:in frontal view quadrate, slightly wider than high, HW/HH 1.2-1.3;",0,0,0,0,0,0,0
 "Head:in frontal view quadrate, slightly wider than high, HW/HH approx. 1.2;",0,0,0,0,0,0,0
@@ -245,7 +245,7 @@ dummy 22(F2 - F7)0:F2 - F7 transverse;,0,0,0,0,1,0,0
 "clava 4-segmented,:segments annular in males, C1-3 as long dorsad as ventrad, with distinct terminal button (C4), in females C4 slightly expanded ventrad and C3 wealy concave, C4=C3 ventrad;",0,0,0,0,0,0,0
 "clava 4-segmented,:segments annular in males, C1-3 as long dorsad as ventrad, with distinct terminal button (C4), in females C4 expanded ventrad and C3 concave, C4>C3 ventrad;",0,0,0,0,0,0,0
 "clava 4-segmented,:C1-3 longer dorsad than ventrad, with distinct terminal button (C4).",0,0,0,1,1,1,1
-
+,,,,,,,
 Mesosoma:length about 1.1 maximum width;,1,0,1,0,0,0,0
 Mesosoma:length approx. 1.3-1.4 maximum width;,0,0,0,0,0,0,0
 Mesosoma:length approx. 1.3 maximum width;,0,1,0,0,0,0,1
@@ -423,7 +423,7 @@ dummy8 (parastigma):parastigma swollen with weak process and usually 3 tightly g
 dummy8 (parastigma):parastigma swollen with abrupt process and usually 3 tightly grouped sensilla forming equilateral triangle;,0,0,0,0,0,0,0
 dummy9 (uncus):stigmal vein with weak uncus.,0,0,1,0,1,1,1
 dummy9 (uncus):stigmal vein rounded without uncus.,1,1,0,1,0,0,0
-
+,,,,,,,
 Metasoma(0):profile in lateral view rounded.,0,0,0,0,0,0,0
 Metasoma(0):profile in lateral view angulate.,0,0,0,0,0,0,0
 "Metasoma:rounded, with a high raised and excavated scale, with strong rugae below, apex deeply cleft and rugose;",0,0,0,0,0,0,0
@@ -452,7 +452,7 @@ dummy39 (groove and nubbins):without median groove and lateral protuberances;,0,
 Gt3:punctuate dorsad and laterad.,0,1,0,0,0,0,0
 Gt3:glabrous.,1,0,0,0,1,0,1
 Gt3:glabrous or weakly imbricate dorsad.,0,0,0,1,0,1,0
-
+,,,,,,,
 Male:Unknown.,1,1,0,0,0,0,0
 Length (male):approx. 1.5 - 1.7mm.,0,0,0,0,0,0,1
 Length (male):approx. 1.5 - 1.6mm.,0,0,0,0,0,1,0

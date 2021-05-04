@@ -2,29 +2,27 @@
 #specifically for Auratus 1 and 2 test files from DCD
 
 library(here)
-#source(here("0-google-docs-import-data.R"))
-source(here("0-csv-import-data.R"))
+library(tidyverse)
+library(janitor)
+
+lucid <- read_csv(here("r-species-descriptions", "UAE August 8, 2019 edit.csv")) %>% 
+  clean_names() %>% 
+  remove_empty()
 
 lucid
-
-lucid <- lucid %>% 
-  clean_names()
 names(lucid) 
 
-unique(lucid$x)
 #create new character variable
 #keep only the text after dummy#:
 pattern = "^dummy.*:"
 
 dim(lucid)
 
-?pivot_longer
-
 lucid <- lucid %>% 
   #mutate(order = seq(from = 1, to = nrow(lucid), by = 1)) %>% 
   #gather("species", "trait.01", -1) %>%  #-X excludes X column from gather
   pivot_longer(-1, names_to = "species", values_to = "trait") %>% 
-  mutate(character = str_remove(x, pattern), 
+  mutate(character = str_remove(feature, pattern), 
          character = str_replace_all(character, ":", ": ")) %>% 
   filter(trait != 0)
 
@@ -45,13 +43,16 @@ unique(lucid$character)
 # ----------------------------------------------------
 
 #export species description
-spp.collapse <- lucid %>% 
+spp_collapse <- lucid %>% 
   group_by(species) %>% 
   summarize(description = paste(character, collapse = " "))
 
-spp.collapse
-unique(spp.collapse$species)
+spp_collapse
+unique(spp_collapse$species)
 
 
-fwrite(spp.collapse, here("outputs", paste("output", file, sep = "-")))
+#this outputs a CSV file that can be copied into a Word file for each species description and final formatting
+write_csv(spp_collapse, 
+          here("r-species-descriptions", 
+               "output-species-description.csv"))
 
