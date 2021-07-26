@@ -8,8 +8,8 @@ library(parzer)
 
 
 # #load material species --------------------------------------------------
-
-data <- read_excel(here("data", "Yemen and UAE Perilampus-Darwin Core Revised for Emily 4.xlsx")) %>% 
+here()
+data <- read_excel(here("r-material-examined", "Yemen and UAE Perilampus-Darwin Core Final.xlsx")) %>% 
   clean_names() %>% 
   remove_empty(c("cols", "rows")) %>% 
   mutate(across(where(is.character), str_trim), 
