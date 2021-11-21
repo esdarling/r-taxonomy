@@ -8,18 +8,30 @@ library(janitor)
 library(glue)
 library(parzer)
 
+?read_excel
 
-data <- read_excel(here("data", "Perilampus", 
-                        "Copy of All Perilampus 2021.xlsx")) %>% 
-  clean_names() %>% 
+data <- read_excel(here("r-material-examined", "data", 
+                        "PlatigasterGroupWithHostData BH Nov 9 DCD reduce columns Nov 12 Emily test dobnos.xlsx"), 
+                   range = "A2:AT2270", 
+                   guess_max = 10000) %>% #set range because header on second row
+  clean_names() 
+
+data
+glimpse(data)
+
+#Aha, '\' hiding in ASCII -- remove later with find/replace in Word (until I have a better solution)
+
+data <- data %>% 
   rename("species" = specific_epithet) %>% 
-  filter(species == "platigaster") %>% 
+  filter(species == "dobnos") %>% 
   remove_empty(c("cols", "rows")) %>% 
-  mutate(across(where(is.character), str_trim), 
+  mutate(across(where(is.character), str_trim), #remove any leading/trailing whitespace
          sex = str_to_lower(sex)) 
 
-#keep NA sex and count 
-names(data)
+glimpse(data)
+
+data %>% 
+  tabyl(species)
 
 #use hymenoptera_on_line_locality
 data %>% 
@@ -27,7 +39,7 @@ data %>%
 
 #find-replace backslashes to delete in Word 
 data %>% 
-  select(hymenoptera_on_line_locality) %>% 
+  select(hol_locality) %>% 
   head() %>% 
   print()
   
@@ -54,9 +66,6 @@ data %>%
   tabyl(sex)
 
 data %>% 
-  tabyl(hymenoptera_on_line_locality)
-
-data %>% 
   tabyl(country)
 
 
@@ -72,41 +81,47 @@ data %>%
               values_from = n, 
               values_fill = 0)
 
+#save for dad to check 
+.Last.value %>% 
+  write_csv(here("r-material-examined/outputs", "dobnos-by-country.csv"))
 
-# specimen summary with platogaster -----------------------------------------------------
+
+# specimen summary with dobnos-----------------------------------------------------
 names(data)
 
 # Select columns for use --------------------------------------------------
 names(data)
 
+#add state/province
 data %>% 
-  select(contains())
+  tabyl(state_province)
 
 data %>% 
-  tabyl(verbatim_date)
+  tabyl(verbatim_date)  #oh boy
 
-data_use <- data %>% 
+data %>% 
   select(species, 
          rome_number, 
          repository, 
          sex, 
-         country, 
-         hymenoptera_on_line_locality, 
+         country,
+         state_province, 
+         hol_locality, 
          verbatim_date) %>% 
-  rename("locality_id"= hymenoptera_on_line_locality)
+  glimpse()
 
 
 # Make specimen summary ---------------------------------------------------
 options(dplyr.summarise.inform = FALSE)
 
-summary <- data_use %>% 
-  #filter(species == "rainerius") %>%
+summary_specimens <- data %>% 
   mutate(id = glue("{rome_number}-{repository}")) %>% #add notes column if present 
   #id = case_when(is.na(notes) ~ glue("{object_number}-{repository}"), 
   #TRUE ~ glue("{object_number}-{repository}, {notes}")
   group_by(species, 
            country, 
-           locality_id, 
+           state_province, 
+           hol_locality, 
            verbatim_date, 
            #collector_s,
            #collecting_method, 
@@ -124,25 +139,46 @@ summary <- data_use %>%
       glue("{n} {sex}: {specimen_id}")) %>% 
   group_by(species, 
            country, 
-           locality_id,
+           state_province, 
+           hol_locality,
            #type, 
            verbatim_date) %>% 
   summarize(specimens = paste(specimens_by_sex, collapse = "; "))
 
-head(summary$specimens)
+glimpse(summary_specimens)
+head(summary_specimens$specimens)
 
 # full loop ---------------------------------------------------------------
 options(dplyr.summarise.inform = FALSE)
 
-species_list <- unique(data_use$species)
+species_list <- unique(data$species)
+
+#check dobnos/Costa Rica
+
+data %>% 
+  filter(species == "dobnos" & 
+           country == "Costa Rica") %>% 
+  tabyl(state_province)
+
+data %>% 
+  filter(species == "dobnos" & 
+           country == "Costa Rica")  %>% 
+  select(state_province, 
+         hol_locality) %>% 
+  distinct() %>% 
+  arrange(state_province, 
+          hol_locality) %>% 
+  view()
+
 
 #for (i in species_list) {
+
 for (i in species_list) {
   print(glue("Perilampus {i}"))
   
-  #i <- "platigaster"
+  i <- "dobnos"
   
-  species_data <- data_use %>%  
+  species_data <- data %>%  
     filter(species == i)
   
   #create country list for species and type
@@ -153,13 +189,14 @@ for (i in species_list) {
   
   for (j in country_list) {
       
-      #j <- "Canada"
+      j <- "Costa Rica"
       
       specimens_sex_country <- species_data %>%
         filter(species == i &
                  country == j) %>% 
         group_by(species, 
                  country, 
+                 state_province, 
                  #type, 
                  sex) %>% 
         count() %>% 
@@ -168,23 +205,25 @@ for (i in species_list) {
           TRUE ~ glue("{n} {sex}"))) %>% 
         group_by(species, 
                  #type, 
-                 country) %>%
+                 country, 
+                 state_province) %>%
         summarize(specimens_by_sex = paste(sex, collapse = ", "))
       
       specimens_sex_country
       
-      summary
+      summary_specimens
+      glimpse(summary_specimens)
       
-      locality_specimens <- summary %>%
+      locality_specimens <- summary_specimens %>%
         filter(species == i & 
                  country == j) %>% 
-        group_by(locality_id,
+        group_by(hol_locality,
                  verbatim_date) %>% 
         summarize(specimens = paste(specimens, collapse = "; ")) %>% 
         mutate(collecting_summary_by_date = glue("{verbatim_date} ({specimens})")) %>% 
-        group_by(locality_id) %>% 
+        group_by(hol_locality) %>% 
         summarize(collecting_summary_by_locality = paste(collecting_summary_by_date, collapse = "; ")) %>% 
-        mutate(locality_summary = glue("{locality_id}: {collecting_summary_by_locality}")) %>% 
+        mutate(locality_summary = glue("{hol_locality}: {collecting_summary_by_locality}")) %>% 
         ungroup() %>% 
         summarize(locality_final = paste(locality_summary, collapse = ". ")) %>% 
         pull(locality_final) 
@@ -198,6 +237,7 @@ for (i in species_list) {
       
     }}
 
+#copy output into a Word file (I know..)
 
 
 
