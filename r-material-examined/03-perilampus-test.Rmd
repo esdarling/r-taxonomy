@@ -1,0 +1,39 @@
+---
+title: "Perilampus-material-examined"
+author: "E. Darling"
+date: "24/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+library(tidyverse)
+library(readxl)
+library(skimr)
+library(janitor)
+library(glue)
+library(parzer)
+```
+
+#Load data 
+
+```{r}
+data <- read_excel(here("r-material-examined", "data", 
+                        "PlatigasterGroupWithHostData BH Nov 9 DCD reduce columns Nov 12 Emily test dobnos.xlsx"), 
+                   range = "A2:AT2270", 
+                   guess_max = 10000) %>% #set range because header on second row
+  clean_names() 
+
+#Aha, '\' hiding in ASCII -- remove later with find/replace in Word (until I have a better solution)
+
+data <- data %>% 
+  rename("species" = specific_epithet) %>% 
+  filter(species == "dobnos") %>% 
+  remove_empty(c("cols", "rows")) %>% 
+  mutate(across(where(is.character), str_trim), #remove any leading/trailing whitespace
+         sex = str_to_lower(sex)) 
+
+glimpse(data)
+```
+
