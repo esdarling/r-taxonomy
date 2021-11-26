@@ -8,8 +8,6 @@ library(janitor)
 library(glue)
 library(parzer)
 
-?read_excel
-
 data <- read_excel(here("r-material-examined", "data", 
                         "PlatigasterGroupWithHostData BH Nov 9 DCD reduce columns Nov 12 Emily test dobnos.xlsx"), 
                    range = "A2:AT2270", 
@@ -105,24 +103,20 @@ data %>%
 # Make specimen summary ---------------------------------------------------
 options(dplyr.summarise.inform = FALSE)
 
-#deal with notes later -- make notes column for dad
-# test <- data %>% 
-#   select(caterpillar_voucher, 
-#          hyper_bin) %>% 
-#   #filter(is.na(hyper_bin) & !is.na(caterpillar_voucher)) %>% 
-#   mutate(dcd_notes = case_when(is.na(hyper_bin) ~ glue("{caterpillar_voucher}"), 
-#                                !is.na(hyper_bin) ~ glue("{caterpillar_voucher}, {hyper_bin}")))
-#   
-# test %>% 
-#   filter(dcd_notes == "NA")
-#   tabyl(dcd_notes)
-
-#filter(!is.na(hyper_bin) & is.na(caterpillar_voucher))
-
+#make notes column for dad
+data <- data %>%
+  # select(caterpillar_voucher,
+  #        hyper_bin) %>%
+  #filter(!is.na(hyper_bin) & !is.na(caterpillar_voucher)) %>%
+  mutate(dcd_notes = case_when(is.na(hyper_bin) ~ glue("{caterpillar_voucher}"),
+                               !is.na(hyper_bin) ~ glue("{caterpillar_voucher}, {hyper_bin}")), 
+         dcd_notes = case_when(dcd_notes == "NA" ~ NA_character_, 
+                               TRUE ~ as.character(dcd_notes))) #must be a better way to make glue > character, but later! 
+  #filter(is.na(dcd_notes))
 
 names(data)
 summary_specimens <- data %>% 
-  rename("notes" = notes_used_in_r_uae) %>% 
+  rename("notes" = dcd_notes) %>% 
   # mutate(dcd_notes = case_when(is.na(hyper_bin) ~ glue("{caterpillar_voucher}"), 
   #                          !is.na(hyper_bin) ~ glue("{caterpillar_voucher}, {hyper_bin}"), 
   #                          TRUE ~ NA_character_)) %>% 
@@ -164,7 +158,7 @@ glimpse(summary_specimens)
 head(summary_specimens$specimens)
 
 summary_specimens %>% 
-  filter(str_detect(specimens, "DHJPAR0021358")) %>% 
+  filter(str_detect(specimens, "DHJPAR0029516")) %>% 
   pull(specimens)
 
 # full loop ---------------------------------------------------------------
