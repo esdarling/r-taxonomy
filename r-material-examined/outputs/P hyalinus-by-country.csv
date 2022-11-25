@@ -1,0 +1,27 @@
+country,species,female,male,"NA"
+Costa Rica,cabecari,4,2,0
+Peru,cabecari,0,1,0
+Brazil,carolinensis,1,3,0
+Costa Rica,carolinensis,15,11,0
+Mexico,carolinensis,0,1,0
+USA,carolinensis,9,2,0
+Colombia,falcatus,0,1,0
+Costa Rica,falcatus,1,0,0
+Ecuador,falcatus,1,0,0
+Guatemala,falcatus,1,0,0
+Mexico,falcatus,1,0,0
+Argentina,falsirex,4,1,0
+Bolivia,falsirex,1,2,0
+Brazil,falsirex,3,1,0
+Costa Rica,falsirex,0,2,0
+Japan,falsirex,1,0,0
+Brazil,minasgeraisi,1,1,0
+Costa Rica,regalis,2,10,0
+Mexico,regalis,1,0,0
+USA,regalis,7,11,0
+Bolivia,tupiaurum,2,0,0
+Brazil,tupiaurum,1,1,0
+Brazil,upsilon,1,6,0
+Paraguay,upsilon,1,0,0
+Brazil,NA,0,0,1
+Costa Rica,NA,1,1,0
