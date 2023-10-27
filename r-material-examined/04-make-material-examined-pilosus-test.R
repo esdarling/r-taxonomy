@@ -9,15 +9,13 @@ library(glue)
 library(parzer)
 
 data <- read_excel(here("r-material-examined", "data", 
-                        "P hyalinus group export 2023-06-08 Brenna Aug 14 DCD for Jeong.xlsx"), 
+                        "pilosus for Emily - a few bogus red and yellow.xlsx"), 
                    guess_max = 10000) %>% 
   clean_names() 
 
 data
 names(data)
 glimpse(data)
-
-#Aha, '\' hiding in ASCII -- remove later with find/replace in Word (until I have a better solution)
 
 data <- data %>% 
   rename("species" = specific_epithet) %>% 
@@ -32,15 +30,21 @@ glimpse(data$locality)
 data %>% 
   tabyl(species)
 
+#Weird slashes in verbatim lat/longs? 
+glimpse(data$verbatim_latitude)
+
+library(textclean)
+vec2 <- replace_non_ascii(data$verbatim_latitude)
+head(vec2)
+
+#Dunno re: weird slashes - remove in word..
+
 data <- data %>% 
   mutate(dcd_locality = case_when(is.na(verbatim_latitude) ~ glue("{locality}"),
                                   TRUE ~ glue("{locality}, {verbatim_latitude}, {verbatim_longitude}")))
 
-data %>% 
-  filter(species == "carolinensis") %>% 
-  select(starts_with("dcd")) %>% 
-  distinct()
 
+head(data$dcd_locality)
 
 # #country summaries by species, sex -----------------------------------------------------
 data %>% 
@@ -54,33 +58,22 @@ data %>%
               values_from = n, 
               values_fill = 0)
 
-#save for dad to check 
-# .Last.value %>% 
-#   write_csv(here("r-material-examined/outputs", "dobnos-by-country.csv"))
-
-
-# specimen summary with dobnos-----------------------------------------------------
-names(data)
-
-# Select columns for use --------------------------------------------------
+# specimen summary-----------------------------------------------------
 names(data)
 
 #add state/province
 data %>% 
   tabyl(state_province)
 
-names(data)
-
 data %>% 
   select(species, 
          object_number, 
          repository, 
-         bin_number, 
+         bin_number_coi, 
          sex, 
          country,
          state_province, 
-         dcd_locality, 
-         verbatim_date) %>% 
+         dcd_locality) %>% 
   glimpse()
 
 
@@ -89,17 +82,14 @@ options(dplyr.summarise.inform = FALSE)
 
 names(data)
 
-names(data)
 summary_specimens <- data %>% 
-  mutate(id = case_when(is.na(host_id) & is.na(bin_number) ~ glue("{object_number}-{repository}"), 
-                         is.na(host_id) & !is.na(bin_number) ~ glue("{object_number}-{repository}; {bin_number}"),
-                         TRUE ~ glue("{object_number}-{repository}, {host_id}"))) %>% 
-
+  mutate(id = case_when(!is.na(bin_number_coi) ~ glue("{object_number}-{repository}; {bin_number_coi}"),
+                         TRUE ~ glue("{object_number}-{repository}"))) %>% 
   group_by(species, 
            country, 
            state_province, 
            dcd_locality, 
-           verbatim_date, 
+           #verbatim_date, 
            #collector_s,
            #collecting_method, 
            sex) %>% 
@@ -119,7 +109,8 @@ summary_specimens <- data %>%
            state_province, 
            dcd_locality,
            #type, 
-           verbatim_date) %>% 
+           #verbatim_date
+           ) %>% 
   summarize(specimens = paste(specimens_by_sex, collapse = ". "))
 
 summary_specimens
@@ -127,7 +118,6 @@ glimpse(summary_specimens)
 head(summary_specimens$specimens)
 
 summary_specimens %>% 
-  filter(species == "carolinensis") %>% 
   pull(specimens)
 
 # full loop ---------------------------------------------------------------
@@ -139,29 +129,14 @@ species_list <- data %>%
   arrange(species) %>% 
   pull(species)
 
-#check dobnos/Costa Rica
-
-data %>% 
-  filter(species == "dobnos" & 
-           country == "Costa Rica") %>% 
-  tabyl(state_province)
-
-data %>% 
-  filter(species == "dobnos" & 
-           country == "Costa Rica")  %>% 
-  select(state_province, 
-         dcd_locality) %>% 
-  distinct() %>% 
-  arrange(state_province, 
-          dcd_locality)
+species_list
 
 
 #for (i in species_list) {
 
-
 for (i in species_list) {
-#for (i in "dobnos") {  
   
+  #i <- "pilosus"
   print(glue("Perilampus {i}"))
   
   species_data <- data %>%  
@@ -176,9 +151,11 @@ for (i in species_list) {
     arrange(country) %>% #alphabetical
     pull(country)
   
+  country_list
+  
   for (j in country_list) {
       
-      #j <- "Costa Rica"
+      #j <- "Mexico"
       
       #summarize specimens by country
       specimens_sex_country <- species_data %>%
@@ -210,9 +187,11 @@ for (i in species_list) {
         arrange(state_province) %>% #alphabetical
         pull(state_province)
       
+      state_list
+      
       for (k in state_list) {
         
-      #k <- "Guanacaste"
+      #k <- "Baja California Sur"
       
       #summarize specimens by state/province
       specimens_sex_state <- species_data %>%
@@ -243,12 +222,12 @@ for (i in species_list) {
         filter(species == i & 
                  country == j & 
                  state_province ==k) %>% 
-        group_by(dcd_locality,
-                 verbatim_date) %>% 
-        summarize(specimens = paste(specimens, collapse = "; ")) %>% 
-        mutate(collecting_summary_by_date = glue("{verbatim_date} ({specimens})")) %>% 
         group_by(dcd_locality) %>% 
-        summarize(collecting_summary_by_locality = paste(collecting_summary_by_date, collapse = "; ")) %>% 
+        summarize(specimens = paste(specimens, collapse = "; ")) %>% 
+        #mutate(collecting_summary_by_date = glue("{verbatim_date} ({specimens})")) %>% 
+        mutate(collecting_summary = glue("({specimens})")) %>% 
+        group_by(dcd_locality) %>% 
+        summarize(collecting_summary_by_locality = paste(collecting_summary, collapse = "; ")) %>% 
         mutate(locality_summary = glue("{dcd_locality}: {collecting_summary_by_locality}")) %>% 
         ungroup() %>% 
         summarize(locality_final = paste(locality_summary, collapse = ". ")) %>% 
