@@ -9,7 +9,7 @@ library(glue)
 library(parzer)
 
 data <- read_excel(here("r-material-examined", "data", 
-                        "pilosus for Emily - a few bogus red and yellow.xlsx"), 
+                        "pilosus for Emily - a few bogus red and yellow DCD update Oct27.xlsx"), 
                    guess_max = 10000) %>% 
   clean_names() 
 
@@ -31,14 +31,14 @@ data %>%
   tabyl(species)
 
 #Weird slashes in verbatim lat/longs? 
+#Don't copy over into Google docs file :) 
 glimpse(data$verbatim_latitude)
 
 library(textclean)
 vec2 <- replace_non_ascii(data$verbatim_latitude)
 head(vec2)
 
-#Dunno re: weird slashes - remove in word..
-
+#Create DCD locality
 data <- data %>% 
   mutate(dcd_locality = case_when(is.na(verbatim_latitude) ~ glue("{locality}"),
                                   TRUE ~ glue("{locality}, {verbatim_latitude}, {verbatim_longitude}")))
@@ -61,31 +61,48 @@ data %>%
 # specimen summary-----------------------------------------------------
 names(data)
 
+#check type
+data %>% 
+  tabyl(type)
+
 #add state/province
 data %>% 
   tabyl(state_province)
 
-data %>% 
+data <- data %>% 
   select(species, 
+         type, 
          object_number, 
          repository, 
          bin_number_coi, 
+         its2,
          sex, 
          country,
          state_province, 
          dcd_locality) %>% 
+  mutate(#type = case_when(!type %in% c("Paratype", "Holotype")  ~ "Additional material examined", 
+                          #TRUE ~ type), 
+        type = fct_recode(type, "Additional material examined"= "AME"), 
+        type = fct_relevel(type, c("Holotype", "Paratype", "Additional material examined"))) %>% 
   glimpse()
 
+data %>% 
+  tabyl(type)
 
 # Make specimen summary ---------------------------------------------------
 options(dplyr.summarise.inform = FALSE)
 
 names(data)
 
+#remove blank type (problematic specimen, don't include in material examined)
+
 summary_specimens <- data %>% 
-  mutate(id = case_when(!is.na(bin_number_coi) ~ glue("{object_number}-{repository}; {bin_number_coi}"),
+  filter(!is.na(type)) %>% 
+  mutate(id = case_when(!is.na(its2) ~ glue("{object_number}-{repository}; {bin_number_coi}; {its2}"),
+                        !is.na(bin_number_coi) ~ glue("{object_number}-{repository}; {bin_number_coi}"),
                          TRUE ~ glue("{object_number}-{repository}"))) %>% 
   group_by(species, 
+           type,
            country, 
            state_province, 
            dcd_locality, 
@@ -105,6 +122,7 @@ summary_specimens <- data %>%
     #TRUE ~ 
       glue("{n} {sex}: {specimen_id}")) %>% 
   group_by(species, 
+           type, 
            country, 
            state_province, 
            dcd_locality,
@@ -120,8 +138,14 @@ head(summary_specimens$specimens)
 summary_specimens %>% 
   pull(specimens)
 
+#look at paratype vs others
+data %>% 
+  tabyl(type)
+
+
 # full loop ---------------------------------------------------------------
 options(dplyr.summarise.inform = FALSE)
+
 
 species_list <- data %>% 
   select(species) %>% 
@@ -145,22 +169,40 @@ for (i in species_list) {
   species_data %>% 
     tabyl(species)
   
+  #create type list for species - should all be the same but who knows
+  
+  type_list <- species_data %>% 
+    select(type) %>% 
+    distinct(type) %>% 
+    arrange(type) %>% 
+    pull(type)
+  
+  type_list
+  
+  for (j in type_list) {
+  
+  #j <- "Holotype"
   #create country list for species and type
-  country_list <- species_data %>% 
-    distinct(country) %>%
-    arrange(country) %>% #alphabetical
-    pull(country)
   
-  country_list
+    print(glue("{j}"))
   
-  for (j in country_list) {
+    country_list <- species_data %>% 
+      filter(type == j) %>% 
+      distinct(country) %>%
+      arrange(country) %>% #alphabetical
+      pull(country)
+    
+    country_list
+    
+  for (k in country_list) {
       
-      #j <- "Mexico"
+      #k <- "USA"
       
       #summarize specimens by country
       specimens_sex_country <- species_data %>%
         filter(species == i &
-                 country == j) %>% 
+                 type == j &
+                 country == k) %>% 
         group_by(species, 
                  country, 
                  #type, 
@@ -177,38 +219,40 @@ for (i in species_list) {
       specimens_sex_country
       specimens_sex_country$country_summary
       
-      print(glue("{j}: {specimens_sex_country$country_summary}."))
+      print(glue("{k}: {specimens_sex_country$country_summary}."))
       
       #create state list
       state_list <- species_data %>%
         filter(species == i &
-                 country == j) %>% 
+                 type == j &
+                 country == k) %>% 
         distinct(state_province) %>% 
         arrange(state_province) %>% #alphabetical
         pull(state_province)
       
       state_list
       
-      for (k in state_list) {
+      for (l in state_list) {
         
-      #k <- "Baja California Sur"
+      #l <- "Texas"
       
       #summarize specimens by state/province
       specimens_sex_state <- species_data %>%
         filter(species == i &
-                 country == j & 
-                 state_province == k)  %>% 
+                 type == j &
+                 country == k & 
+                 state_province == l) %>% 
         group_by(species, 
+                 type,
                  country, 
                  state_province, 
-                 #type, 
                  sex) %>% 
         count() %>% 
         mutate(sex = case_when(
           n > 1 ~ glue("{n} {sex}s"), 
           TRUE ~ glue("{n} {sex}"))) %>% 
         group_by(species, 
-                 #type, 
+                 type, 
                  country, 
                  state_province) %>%
         summarize(state_summary = paste(sex, collapse = ", "))
@@ -219,9 +263,10 @@ for (i in species_list) {
       #make locality and specimens text
       
       locality_specimens <- summary_specimens %>%
-        filter(species == i & 
-                 country == j & 
-                 state_province ==k) %>% 
+        filter(species == i &
+                 type == j &
+                 country == k & 
+                 state_province == l) %>% 
         group_by(dcd_locality) %>% 
         summarize(specimens = paste(specimens, collapse = "; ")) %>% 
         #mutate(collecting_summary_by_date = glue("{verbatim_date} ({specimens})")) %>% 
@@ -235,11 +280,8 @@ for (i in species_list) {
       
       locality_specimens
       
-      #print sex tally only for non-type records
-      #j <- "Material examined"
-      
-      print(glue("{k}: {specimens_sex_state$state_summary}. {locality_specimens}."))
-      }}}
+      print(glue("{l}: {specimens_sex_state$state_summary}. {locality_specimens}."))
+      }}}}
 
 
 #copy output into a Word file (I know..)
