@@ -13,7 +13,7 @@ library(parzer)
 ?fct_recode
 
 data <- read_excel(here("r-material-examined", "data", 
-                        "hyalinus group for Material Examined Dec12 to Emily.xlsx"), 
+                        "hyalinus group for Material Examined_5July2024b.xlsx"), 
                    guess_max = 10000) %>% 
   clean_names() 
 
@@ -27,8 +27,20 @@ data <- data %>%
   mutate(type = case_when(type == "AME" ~ "Additional Material Examined", 
                           is.na(type) ~ "Regular Specimens", 
                           TRUE ~ type)) %>% 
-  mutate(county = str_replace(county, "\\bCo\\.", "County"), 
+  mutate(#county = str_replace(county, "\\bCo\\.", "County"), 
          county = str_replace_all(county, "(\\w+)\\.$", "\\1")) #removes any final period, from chatGPT
+         #locality = str_remove_all(locality, "\\[|\\]|\\(|\\)")) #removes all brackets from locality
+
+
+
+#list out counties for dad to check
+data %>%
+  select(country,
+         county) %>%
+  distinct() %>%
+  arrange(country, county) %>%
+  write_csv(here("r-material-examined", "county-to-check-5july2024.csv"))
+
 
 data %>% 
   tabyl(species)
@@ -274,7 +286,7 @@ for (i in species_list) {
           
           for (m in county_list) {
             # Print the selected county information before specimens
-            print(glue("{m}. "))
+            print(glue("{m}., "))
             
             
             locality_specimens <- summary_specimens %>%
@@ -286,7 +298,7 @@ for (i in species_list) {
               group_by(county, 
                        dcd_locality) %>% 
               summarize(specimens = paste(specimens, collapse = "; ")) %>% 
-              mutate(specimens = paste(glue("{dcd_locality}:"), specimens)) 
+              mutate(specimens = paste(glue("{dcd_locality}: ({specimens})")))
 
             print(glue("{locality_specimens$specimens}. "))
           }
