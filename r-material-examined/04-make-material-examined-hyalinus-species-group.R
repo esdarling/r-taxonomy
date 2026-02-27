@@ -11,15 +11,21 @@ library(glue)
 library(parzer)
 
 ?fct_recode
-
+?read_excel
+here()
 data <- read_excel(here("r-material-examined", "data", 
-                        "hyalinus group for Material Examined_5July2024b.xlsx"), 
+                        #"hyalinus group for Material Examined_5July2024b.xlsx"
+                        "hyalinus group for Material Examined Sep11 to Emily.xlsx"), 
+                   sheet = "carolinensis ms only",
+                   range = "C3:AO132",
                    guess_max = 10000) %>% 
   clean_names() 
 
+names(data)
+
 data <- data %>% 
   rename("species" = specific_epithet, 
-         "type" = types) %>% 
+         "type" = type) %>% 
   remove_empty(c("cols", "rows")) %>% 
   mutate(across(where(is.character), str_trim), #remove any leading/trailing whitespace
          sex = str_to_lower(sex)) %>% 
