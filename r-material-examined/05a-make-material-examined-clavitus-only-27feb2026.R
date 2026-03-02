@@ -9,8 +9,8 @@ library(glue)
 library(parzer)
 
 data <- read_excel(here("r-material-examined", "data", 
-                        "Copy of tropicalia Bogus types.xlsx"), 
-                   range = "A1:AX108", 
+                        "Platigaster group export 2023-07-05 clavatus only test.xlsx"), 
+                   #range = "A1:AX108", 
                    guess_max = 10000) %>% #set range because header on second row
   clean_names() 
 
@@ -22,13 +22,18 @@ data <- data %>%
   rename("species" = specific_epithet) %>% 
   remove_empty(c("cols", "rows")) %>% 
   mutate(across(where(is.character), str_trim), #remove any leading/trailing whitespace
-         sex = str_to_lower(sex)) 
+         sex = str_to_lower(sex)) %>% 
+  mutate(type_ame = ifelse(is.na(type_ame), "Additional Material Examined", type_ame))
+  
 
 glimpse(data)
 glimpse(data$locality)
 
 data %>% 
   tabyl(species)
+
+data %>% 
+  tabyl(type_ame)
 
 #use hymenoptera_on_line_locality
 data %>% 
@@ -46,11 +51,13 @@ data <- data %>%
   #        verbatim_latitude, 
   #        verbatim_longitude, 
   #        elevation) %>%
-  mutate(location_info = case_when(!is.na(park) ~ glue("{park}, {locality}"),
-                                  TRUE ~ glue("{locality}")), 
-         dcd_locality = case_when(!is.na(verbatim_latitude) ~ 
+  # mutate(location_info = case_when(!is.na(park) ~ glue("{park}, {locality}"),
+  #                                 TRUE ~ glue("{locality}"))) %>% 
+  mutate(location_info = glue("{locality}")) %>%
+  mutate(dcd_locality = case_when(!is.na(verbatim_latitude) ~ 
                                     glue("{location_info}, {verbatim_latitude}, {verbatim_longitude}"),
                                   TRUE ~ glue("{location_info}")))
+
 data %>% 
   select(location_info) %>%
   distinct(location_info)
@@ -93,6 +100,7 @@ names(data)
 
 summary_specimens <- data %>% 
   select(species, 
+         type_ame, 
          object_number, 
          repository, 
          #bin_number, 
@@ -102,7 +110,8 @@ summary_specimens <- data %>%
          state_province, 
          dcd_locality, 
          #verbatim_date, 
-         determiner) %>%
+         #collector_s, 
+         collector_s) %>%
   # select(object_number, 
   #        repository, 
   #        bin_number, 
@@ -112,26 +121,30 @@ summary_specimens <- data %>%
   # mutate(id = case_when(!is.na(repository) & !is.na(host_id) & !is.na(bin_number) ~
   #                         glue("{object_number}-{repository}, {host_id}, {bin_number}"),
   #                       !is.na(repository) & !is.na(host_id) & is.na(bin_number) ~
-  #                         glue("{object_number}-{repository}, {host_id}"), 
+  #                         glue("{object_number}-{repository}, {host_id}"),
   #                       !is.na(repository) & is.na(host_id) & !is.na(bin_number) ~
-  #                         glue("{object_number}-{repository}, {bin_number}"), 
+  #                         glue("{object_number}-{repository}, {bin_number}"),
   #                       !is.na(repository) & is.na(host_id) & is.na(bin_number) ~
   #                         glue("{object_number}-{repository}"),
-  #                       TRUE ~ glue("{object_number}"))) %>% 
-  # select(id) %>% 
-  # distinct(id) %>% 
-  # view() 
+  #                       TRUE ~ glue("{object_number}"))) %>%
+  mutate(id = case_when(!is.na(repository) ~
+                          glue("{object_number}-{repository}"),
+                        TRUE ~ glue("{object_number}"))) %>%
+  # select(id) %>%
+  # distinct(id) %>%
+  # view()
 group_by(species, 
+         type_ame, 
            country, 
            state_province, 
            dcd_locality, 
            #verbatim_date, 
            #collector_s,
            #collecting_method, 
-         determiner,
+         collector_s,
          sex) %>% 
   summarize(n = n(), 
-            specimen_id = paste(object_number, collapse = "; ")) %>% 
+            specimen_id = paste(id, collapse = "; ")) %>% 
   mutate(#type = as.character(type), 
          sex = case_when(
            sex == "male" & n > 1 ~ "males", 
@@ -140,14 +153,15 @@ group_by(species,
   mutate(specimens_by_sex = #case_when( 
     #type == "Holotype" ~ glue("{sex}: {specimen_id}"), #don't put '1' when it is a Holotype
     #TRUE ~ 
-      glue("{n} {sex}: {specimen_id}")) %>% 
+      glue("{n}{sex}-{specimen_id}")) %>% 
   group_by(species, 
+           type_ame,
            country, 
            state_province, 
            dcd_locality,
            #type, 
            #verbatim_date,
-           determiner) %>% 
+           collector_s) %>% 
   summarize(specimens = paste(specimens_by_sex, collapse = ". "))
 
 summary_specimens
@@ -155,6 +169,9 @@ glimpse(summary_specimens)
 head(summary_specimens$specimens)
 
 summary_specimens
+
+summary_specimens %>% 
+  tabyl(type_ame)
 
 # full loop ---------------------------------------------------------------
 
@@ -166,7 +183,16 @@ species_list <- data %>%
 
 species_list
 
-#for (i in species_list) {
+
+type_list <- data %>% 
+  select(type_ame) %>% 
+  distinct(type_ame) %>% 
+  arrange(type_ame) %>% 
+  pull(type_ame)
+
+type_list <- c("Holotype", "Paratype", "Additional Material Examined")
+type_list
+
 
 # -----------------------------
 # Helper functions (define once)
@@ -174,7 +200,7 @@ species_list
 
 sex_symbol <- function(x) {
   dplyr::case_when(
-    x == "male"   ~ "\u2642",  # ♂
+    x == "male" ~ "\u2642",  # ♂
     x == "female" ~ "\u2640",  # ♀
     TRUE          ~ x
   )
@@ -184,8 +210,11 @@ replace_sex_words <- function(text) {
   stringr::str_replace_all(
     text,
     c(
-      "(?i)\\bmale(s)?\\b"   = "\u2642",  # ♂
-      "(?i)\\bfemale(s)?\\b" = "\u2640"   # ♀
+      # Replace "female" even when attached to digits or codes
+      "(?i)(female)(s)?" = "\u2640",
+      
+      # Replace "male" even when attached to digits or codes
+      "(?i)(male)(s)?"   = "\u2642"
     )
   )
 }
@@ -206,23 +235,42 @@ for (i in species_list) {
     species_data %>%
       janitor::tabyl(species)
     
+    
+  for (ii in type_list) {
+      
+      # Label for printing
+      print(ii)
+    
+    
     # -----------------------------
     # Country level
     # -----------------------------
     
     country_list <- species_data %>%
+      { 
+        if (is.na(ii)) {
+          dplyr::filter(., is.na(type_ame))
+        } else {
+          dplyr::filter(., type_ame == ii)
+        }
+      } %>%
       dplyr::distinct(country) %>%
       dplyr::arrange(country) %>%
       dplyr::pull(country)
     
+    country_list
+    
     for (j in country_list) {
       
+      species_data %>% 
+        tabyl(type_ame)
+      
       specimens_sex_country <- species_data %>%
-        dplyr::filter(species == i & country == j) %>%
+        dplyr::filter(species == i & type_ame == ii & country == j) %>%
         dplyr::group_by(species, country, sex) %>%
         dplyr::count() %>%
         dplyr::mutate(sex = sex_symbol(sex)) %>%
-        dplyr::mutate(sex = glue::glue("{n} {sex}")) %>%
+        dplyr::mutate(sex = glue::glue("{n}{sex}")) %>%
         dplyr::group_by(species, country) %>%
         dplyr::summarize(
           country_summary = paste(sex, collapse = ", "),
@@ -247,14 +295,14 @@ for (i in species_list) {
         
         specimens_sex_state <- species_data %>%
           dplyr::filter(
-            species == i &
+            species == i & type_ame == ii &
               country == j &
               state_province == k
           ) %>%
-          dplyr::group_by(species, country, state_province, sex) %>%
+          dplyr::group_by(species, type_ame, country, state_province, sex) %>%
           dplyr::count() %>%
           dplyr::mutate(sex = sex_symbol(sex)) %>%
-          dplyr::mutate(sex = glue::glue("{n} {sex}")) %>%
+          dplyr::mutate(sex = glue::glue("{n}{sex}")) %>%
           dplyr::group_by(species, country, state_province) %>%
           dplyr::summarize(
             state_summary = paste(sex, collapse = ", "),
@@ -269,18 +317,18 @@ for (i in species_list) {
         
         locality_specimens <- summary_specimens %>%
           dplyr::filter(
-            species == i &
+            species == i & type_ame == ii & 
               country == j &
               state_province == k
           ) %>%
-          dplyr::group_by(dcd_locality, determiner) %>%
+          dplyr::group_by(dcd_locality, collector_s) %>%
           dplyr::summarize(
             specimens = paste(specimens, collapse = "; "),
             .groups = "drop"
           ) %>%
           dplyr::mutate(specimens = replace_sex_words(specimens)) %>%
           dplyr::mutate(
-            collecting_summary = glue::glue("{determiner} ({specimens})")
+            collecting_summary = glue::glue("{collector_s} ({specimens})")
           ) %>%
           dplyr::group_by(dcd_locality) %>%
           dplyr::summarize(
@@ -310,8 +358,9 @@ for (i in species_list) {
         
       }
     }
-  })
+  }})
 }
 
 
-#copy output into a Word file (I know..)
+#copy output into a Word file (I know..))
+     
