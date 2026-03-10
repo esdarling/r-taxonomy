@@ -42,21 +42,28 @@ data %>%
 #make dcd_locality from original columns
 #don't use hol_locality
 
-names(data)
-data <- data %>% 
-  # filter(species == "dobnos" & 
-  #          country == "Costa Rica") %>% 
-  # select(park, 
-  #        locality,
-  #        verbatim_latitude, 
-  #        verbatim_longitude, 
-  #        elevation) %>%
-  # mutate(location_info = case_when(!is.na(park) ~ glue("{park}, {locality}"),
-  #                                 TRUE ~ glue("{locality}"))) %>% 
+data %>% select(verbatim_latitude, verbatim_longitude) %>% distinct()
+
+clean_coord <- function(x) {
+  # If it looks like a decimal number, round it to 6 decimal places
+  # If it's DMS or NA, leave it alone
+  dplyr::case_when(
+    is.na(x) ~ NA_character_,
+    grepl("^-?[0-9]+\\.[0-9]+$", x) ~ as.character(round(as.numeric(x), 6)),
+    TRUE ~ x
+  )
+}
+
+data <- data %>%
   mutate(location_info = glue("{locality}")) %>%
-  mutate(dcd_locality = case_when(!is.na(verbatim_latitude) ~ 
-                                    glue("{location_info}, {verbatim_latitude}, {verbatim_longitude}"),
-                                  TRUE ~ glue("{location_info}")))
+  mutate(
+    verbatim_latitude  = clean_coord(verbatim_latitude),
+    verbatim_longitude = clean_coord(verbatim_longitude),
+    dcd_locality = case_when(
+      !is.na(verbatim_latitude) ~ glue("{location_info}, {verbatim_latitude}, {verbatim_longitude}"),
+      TRUE ~ glue("{location_info}")
+    )
+  )
 
 data %>% 
   select(location_info) %>%
@@ -66,6 +73,7 @@ data %>%
   select(dcd_locality) %>%
   distinct(dcd_locality)
 
+data$dcd_locality
 
 # #country summaries by species, sex -----------------------------------------------------
 data %>% 
