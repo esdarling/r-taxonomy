@@ -8,15 +8,9 @@ library(janitor)
 library(glue)
 library(parzer)
 
-# data <- read_excel(here("r-material-examined", "data",
-#                         "Platigaster group export 2023-07-05 clavatus only test.xlsx"),
-#                    #range = "A1:AX108",
-#                    guess_max = 10000) %>%
-#   clean_names()
-
 # test with new file
 data <- read_excel(here("r-material-examined", "data",
-                        "Platigaster group export 2023-07-05 clavatus SRNP.xlsx"),
+                        "ped test.xlsx"),
                    #range = "A1:AX108",
                    guess_max = 10000) %>%
   clean_names()
@@ -28,11 +22,16 @@ glimpse(data)
 
 data <- data %>%
   rename("species" = specific_epithet) %>%
-  remove_empty(c("cols", "rows")) %>%
   mutate(across(where(is.character), str_trim),  # remove any leading/trailing whitespace
          across(where(is.character), ~na_if(., "")),  # convert blank strings to NA
-         sex = str_to_lower(sex)) %>%
-  mutate(type_ame = ifelse(is.na(type_ame), "Additional Material Examined", type_ame))
+         sex = str_to_lower(sex), 
+         type_ame = ifelse(is.na(type_ame), "Additional Material Examined", type_ame)) %>% 
+  mutate(country = if (all(str_detect(country[!is.na(country)], "^[A-Z]+$"))) {
+    str_to_title(country)
+  } else {
+    country
+  })
+  #remove_empty(c("cols", "rows"))
 
 
 glimpse(data)
@@ -43,6 +42,12 @@ data %>%
 
 data %>%
   tabyl(type_ame)
+
+
+data %>%
+  tabyl(country)
+
+#If all CAPS, mutate to Title case
 
 # use hymenoptera_on_line_locality
 data %>%
