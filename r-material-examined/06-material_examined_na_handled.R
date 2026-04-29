@@ -15,13 +15,16 @@ data <- read_excel(here("r-material-examined", "data",
                    guess_max = 10000) %>%
   clean_names()
 
+data %>%
+  tabyl(type_ame)
 
 data
 names(data)
 glimpse(data)
 
 data %>% 
-  filter(object_number == "DHJPAR0057007")
+  filter(object_number == "DHJPAR0057007") %>% 
+  select(type_ame)
 
 data <- data %>%
   rename("species" = specific_epithet) %>%
@@ -30,7 +33,7 @@ data <- data %>%
     across(where(is.character), ~na_if(., "")),
     sex = str_to_lower(sex),
     type_ame = case_when(
-      is.na(type_ame)   ~ "Additional Material Examined",
+      is.na(type_ame)   ~ "Specimens",
       type_ame == "AME" ~ "Additional Material Examined",
       TRUE              ~ type_ame
     ),
@@ -217,7 +220,7 @@ species_list <- data %>%
 
 species_list
 
-type_list <- c("Holotype", "Paratype", "Additional Material Examined")
+type_list <- c("Holotype", "Paratype", "Additional Material Examined", "Specimens")
 type_list
 
 
