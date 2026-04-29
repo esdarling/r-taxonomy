@@ -10,7 +10,7 @@ library(parzer)
 
 # test with new file
 data <- read_excel(here("r-material-examined", "data",
-                        "ped test.xlsx"),
+                        "danwinnie export for SRNP Type_AME complete.xlsx"),
                    #range = "A1:AX108",
                    guess_max = 10000) %>%
   clean_names()
@@ -20,19 +20,26 @@ data
 names(data)
 glimpse(data)
 
+data %>% 
+  filter(object_number == "DHJPAR0057007")
+
 data <- data %>%
   rename("species" = specific_epithet) %>%
-  mutate(across(where(is.character), str_trim),  # remove any leading/trailing whitespace
-         across(where(is.character), ~na_if(., "")),  # convert blank strings to NA
-         sex = str_to_lower(sex), 
-         type_ame = ifelse(is.na(type_ame), "Additional Material Examined", type_ame)) %>% 
-  mutate(country = if (all(str_detect(country[!is.na(country)], "^[A-Z]+$"))) {
-    str_to_title(country)
-  } else {
-    country
-  })
-  #remove_empty(c("cols", "rows"))
-
+  mutate(
+    across(where(is.character), str_trim),
+    across(where(is.character), ~na_if(., "")),
+    sex = str_to_lower(sex),
+    type_ame = case_when(
+      is.na(type_ame)   ~ "Additional Material Examined",
+      type_ame == "AME" ~ "Additional Material Examined",
+      TRUE              ~ type_ame
+    ),
+    country = if (all(str_detect(country[!is.na(country)], "^[A-Z]+$"))) {
+      str_to_title(country)
+    } else {
+      country
+    }
+  )
 
 glimpse(data)
 glimpse(data$locality)
@@ -43,6 +50,9 @@ data %>%
 data %>%
   tabyl(type_ame)
 
+data %>% 
+  filter(type_ame == "AME") %>% 
+  select(country, object_number)
 
 data %>%
   tabyl(country)
